@@ -1,6 +1,5 @@
 <template>
     <div id="landf">
-
     </div>
 </template>
 
