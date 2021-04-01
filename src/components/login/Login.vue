@@ -80,9 +80,6 @@ export default {
     top: -19rem;
     left: 4.5rem;
   }
-  #mima:hover,#user:hover{
-    border: 1px solid #000000;
-  }
   #dlbtn{
     width: 6rem;
     height: 2rem;
