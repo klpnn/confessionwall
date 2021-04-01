@@ -1,9 +1,9 @@
 <template>
-    <div id="header">
+    <div id="header3">
         <img src="../../assets/logo.png" id="logo" alt=""/>
         <ul>
-            <a href="/wall"> <li @click="navClicka" ref="a" class="nav">墙墙</li></a>
-            <a href="/lostandfound"><li @click="navClickb" ref="b">失物招领</li></a>
+            <a href="/wall"> <li @click="navClicka" ref="a">墙墙</li></a>
+            <a href="/lostandfound"><li @click="navClickb" ref="b" class="nav">失物招领</li></a>
             <a href="/login"><li @click="navClickc" ref="c">登录</li></a>
             <a href="javascript:"><li @click="navClickd" ref="d">注册</li></a>
         </ul>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'Header',
+  name: 'Header3',
   methods: {
     navClicka () {
       this.$refs.a.className = 'nav'
@@ -49,7 +49,7 @@ export default {
         font-family: kuaileti;
         src: url("../../assets/zkklt.ttf");
     }
-    #header{
+    #header3{
         width: 50rem;
         height: 10rem;
         background-color: #f4abbc;
@@ -63,21 +63,21 @@ export default {
         left: 0.8rem;
         float: left;
     }
-    #header ul{
+    #header3 ul{
         list-style: none;
         position: relative;
         top: 0.8rem;
         left: 25rem;
     }
-    #header ul li{
+    #header3 ul li{
         float: left;
         margin: 0 0.5rem;
         font-size: 18px;
         font-family: kuaileti;
         color: #858585;
     }
-    #header ul li:hover{
-      font-size: 22px;
+    #header3 ul li:hover{
+        font-size: 22px;
     }
     #heart{
         width: 6rem;
