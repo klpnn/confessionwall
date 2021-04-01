@@ -1,8 +1,8 @@
 <template>
-    <div id="landf">
-      <Header1></Header1>
-      <Bottom></Bottom>
-    </div>
+  <div id="landf">
+    <Header1></Header1>
+    <Bottom></Bottom>
+  </div>
 </template>
 
 <script>
