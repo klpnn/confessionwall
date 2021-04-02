@@ -4,20 +4,31 @@ import Index from '@/components/Index'
 import Lostandfound from '../components/lostandfound/Lostandfound'
 import Login from '../components/login/Login'
 import Register from '../components/register/Register'
+import RealName from '../components/index/RealName'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '',
+      path: '/',
       name: 'index',
-      component: Index
+      component: Index,
+      children: [{
+        path: '/',
+        name: 'realName',
+        component: RealName
+      }]
     },
     {
       path: '/wall',
       name: 'index',
-      component: Index
+      component: Index,
+      children: [{
+        path: 'realName',
+        name: 'realName',
+        component: RealName
+      }]
     },
     {
       path: '/lostandfound',
