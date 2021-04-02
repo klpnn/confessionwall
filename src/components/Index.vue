@@ -1,62 +1,11 @@
 <template>
   <div id="index">
-    <Header></Header>
     <div class="title">
       <a href="javascript:"><span class="title1" @click="clickTitleone" ref="one">实名</span></a>
       <a href="javascript:"><span @click="clickTitletwo" ref="two">匿名</span></a>
       <a href="javascript:"><span @click="clickTitlethree" ref="three">表白</span></a>
     </div>
-
-    <div id="realname" v-if="shiming">
-      <div id="line"></div>
-      <div id="sxy">
-        <a href="javascript:"> <span id="left">上一页</span></a>
-        <a href="javascript:"><span id="right">下一页</span></a>
-      </div>
-      <div class="container">
-        <table>
-          <tr class="onetr"><td>哈哈哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或哈哈哈哈哈哈哈哈哈或或或或或或或或或哈哈哈哈哈哈或哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</td></tr>
-          <tr class="twotr"><td><span class="firstspan">小红</span> <span class="secondspan">1月1日</span></td></tr>
-        </table>
-        <table>
-          <tr class="onetr"><td>哈哈哈</td></tr>
-          <tr class="twotr"><td><span class="firstspan">小红</span> <span class="secondspan">1月1日</span></td></tr>
-        </table>
-        <table>
-          <tr class="onetr"><td>哈哈哈</td></tr>
-          <tr class="twotr"><td><span class="firstspan">小红</span> <span class="secondspan">1月1日</span></td></tr>
-        </table>
-        <table>
-          <tr class="onetr"><td>哈哈哈</td></tr>
-          <tr class="twotr"><td><span class="firstspan">小红</span> <span class="secondspan">1月1日</span></td></tr>
-        </table>
-        <table>
-          <tr class="onetr"><td>哈哈哈</td></tr>
-          <tr class="twotr"><td><span class="firstspan">小红</span> <span class="secondspan">1月1日</span></td></tr>
-        </table>
-        <table>
-          <tr class="onetr"><td>哈哈哈</td></tr>
-          <tr class="twotr"><td><span class="firstspan">小红</span> <span class="secondspan">1月1日</span></td></tr>
-        </table>
-        <table>
-          <tr class="onetr"><td>哈哈哈</td></tr>
-          <tr class="twotr"><td><span class="firstspan">小红</span> <span class="secondspan">1月1日</span></td></tr>
-        </table>
-        <table>
-          <tr class="onetr"><td>哈哈哈</td></tr>
-          <tr class="twotr"><td><span class="firstspan">小红</span> <span class="secondspan">1月1日</span></td></tr>
-        </table>
-        <table>
-          <tr class="onetr"><td>哈哈哈</td></tr>
-          <tr class="twotr"><td><span class="firstspan">小红</span> <span class="secondspan">1月1日</span></td></tr>
-        </table>
-      </div>
-      <div id="page">
-        <label>页码：&emsp;<input type="text" value="1"/></label>&emsp;
-        <button id="pagebtn">确定</button>
-      </div>
-    </div>
-
+    <router-view></router-view>
     <div id="anonymous" v-if="niming">
       <div id="line1"></div>
       <div id="sxy1">
@@ -68,8 +17,6 @@
     <div id="confession" v-if="biaobai">
 
     </div>
-
-    <bottom></bottom>
   </div>
 </template>
 

@@ -1,14 +1,13 @@
 <template>
   <div id="header">
     <img src="../../assets/logo.png" id="logo" alt=""/>
-    <ul>
-      <a href="/wall"> <li @click="navClicka" ref="a" class="nav">墙墙</li></a>
-      <a href="/lostandfound"><li @click="navClickb" ref="b">失物招领</li></a>
-      <a href="/login"><li @click="navClickc" ref="c">登录</li></a>
-      <a href="/register"><li @click="navClickd" ref="d">注册</li></a>
-    </ul>
+    <div class="link_bar">
+      <a href="/"> <span @click="navClicka" ref="a" class="nav" id="link1">墙墙</span></a>
+      <a href="/lostandfound"><span @click="navClickb" ref="b" id="link2">失物招领</span></a>
+      <a href="/login"><span @click="navClickc" ref="c" id="link3">登录</span></a>
+      <a href="/register"><span @click="navClickd" ref="d" id="link4">注册</span></a>
+    </div>
     <img src="../../assets/xin.png" id="heart" alt="">
-    <router-view/>
   </div>
 </template>
 
@@ -50,11 +49,12 @@ export default {
     src: url("../../assets/zkklt.ttf");
   }
   #header{
-    width: 50rem;
-    height: 10rem;
+    position: relative;
+    width: 1000px;
+    /*left: calc(50% - 500px);*/
+    height: 200px;
     background-color: #f4abbc;
     margin: 0 auto;
-    position: relative;
   }
   #logo{
     width: 8rem;
@@ -63,26 +63,42 @@ export default {
     left: 0.8rem;
     float: left;
   }
-  #header ul{
-    list-style: none;
-    position: relative;
-    top: 0.8rem;
-    left: 25rem;
+  .link_bar{
+    position: absolute;
+    width: 30%;
+    height: 20%;
+    top: 10%;
+    left: 66%;
   }
-  #header ul li{
-    float: left;
-    margin: 0 0.5rem;
-    font-size: 18px;
+  .link_bar span{
+    position: absolute;
+    font-size: 22px;
     font-family: kuaileti;
     color: #858585;
+    width: 25%;
   }
-  #header ul li:hover{
-    font-size: 22px;
+  #link1 {
+    left: 0;
+  }
+  #link2 {
+    width: 60%;
+    left: 22%;
+  }
+  #link3 {
+    left: 60%;
+  }
+  #link4 {
+    left: 80%;
+  }
+  .link_bar span:hover{
+    font-size: 26px;
   }
   #heart{
-    width: 6rem;
+    position: absolute;
+    left: 44%;
+    width: 12%;
+    top: 30%;
     transform:rotate(20deg);
-    margin: 1.5rem 22rem;
   }
   .nav{
     text-shadow: 1px 1px 2px #ffffff,-1px -1px 2px #ffffff,1px -1px 2px #ffffff,-1px 1px 2px #ffffff;

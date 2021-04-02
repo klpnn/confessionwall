@@ -1,6 +1,5 @@
 <template>
 <div id="login">
-  <Header2></Header2>
   <div id="main">
     <img src="../../assets/lover.png" alt="">
     <div id="card">
@@ -10,7 +9,6 @@
       <button id="dlbtn">登录</button>
     </div>
   </div>
-  <Bottom></Bottom>
 </div>
 </template>
 
