@@ -5,7 +5,7 @@
       <a href="/wall"> <li @click="navClicka" ref="a" class="nav">墙墙</li></a>
       <a href="/lostandfound"><li @click="navClickb" ref="b">失物招领</li></a>
       <a href="/login"><li @click="navClickc" ref="c">登录</li></a>
-      <a href="javascript:"><li @click="navClickd" ref="d">注册</li></a>
+      <a href="/register"><li @click="navClickd" ref="d">注册</li></a>
     </ul>
     <img src="../../assets/xin.png" id="heart" alt="">
     <router-view/>

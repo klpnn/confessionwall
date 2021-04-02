@@ -1,13 +1,13 @@
 <template>
   <div id="header2">
-    <img src="../../assets/logo.png" id="logo" alt=""/>
+    <img src="../../assets/logo.png" id="logo2" alt=""/>
     <ul>
       <a href="/wall"> <li @click="navClicka" ref="a">墙墙</li></a>
       <a href="/lostandfound"><li @click="navClickb" ref="b">失物招领</li></a>
       <a href="/login"><li @click="navClickc" ref="c" class="nav">登录</li></a>
-      <a href="javascript:"><li @click="navClickd" ref="d">注册</li></a>
+      <a href="/register"><li @click="navClickd" ref="d">注册</li></a>
     </ul>
-    <img src="../../assets/xin.png" id="heart" alt="">
+    <img src="../../assets/xin.png" id="heart2" alt="">
   </div>
 </template>
 
@@ -55,7 +55,7 @@ export default {
     margin: 0 auto;
     position: relative;
   }
-  #logo{
+  #logo2{
     width: 8rem;
     position: relative;
     top: 0.5rem;
@@ -78,7 +78,7 @@ export default {
   #header2 ul li:hover{
     font-size: 22px;
   }
-  #heart{
+  #heart2{
     width: 6rem;
     transform:rotate(20deg);
     margin: 1.5rem 22rem;
