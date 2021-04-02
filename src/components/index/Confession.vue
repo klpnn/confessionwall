@@ -1,13 +1,14 @@
 <template>
-  <div id="landf">
+  <div id="confession">
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Lostandfound'
+  name: 'Confession'
 }
 </script>
 
 <style scoped>
+
 </style>

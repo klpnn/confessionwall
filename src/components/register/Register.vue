@@ -1,6 +1,5 @@
 <template>
 <div id="register">
-  <Header3></Header3>
   <div id="main1">
     <img src="../../assets/lover.png" alt="">
     <div id="card1">
@@ -11,19 +10,12 @@
       <button id="zcbtn">注册</button>
     </div>
   </div>
-  <Bottom></Bottom>
 </div>
 </template>
 
 <script>
-import Header3 from '../header/Header3'
-import Bottom from '../bottom/Bottom'
 export default {
-  name: 'Register',
-  components: {
-    Bottom,
-    Header3
-  }
+  name: 'Register'
 }
 </script>
 
@@ -35,7 +27,7 @@ export default {
   #main1{
     width: 46rem;
     height: 23rem;
-    margin: 1rem auto;
+    margin: 1rem auto 50px;
     background: url("../../assets/bg.png");
     background-size: 100% 100%;
     border-radius: 5px;
@@ -58,6 +50,7 @@ export default {
   }
   #card1 p{
     width: 22rem;
+    height: 2rem;
     font-size: 40px;
     font-family: huazi;
     text-align: center;
@@ -70,7 +63,7 @@ export default {
     height: 1.5rem;
     margin: 0 auto;
     position: relative;
-    top: -21rem;
+    top: -14rem;
     left: 4.5rem;
   }
   #mima1{
@@ -78,7 +71,7 @@ export default {
     height: 1.5rem;
     margin: 0 auto;
     position: relative;
-    top: -20rem;
+    top: -13rem;
     left: 4.5rem;
   }
   #qrmima{
@@ -86,7 +79,7 @@ export default {
     height: 1.5rem;
     margin: 0 auto;
     position: relative;
-    top: -19rem;
+    top: -12rem;
     left: 4.5rem;
   }
   #zcbtn{
@@ -94,7 +87,7 @@ export default {
     height: 2rem;
     margin: 0 auto;
     position: relative;
-    top: -17rem;
+    top: -10rem;
     left: 8rem;
     background-color: #66baff;
     border: 2px solid #858585;

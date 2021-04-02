@@ -12,11 +12,14 @@ export default {
 
 <style scoped>
   #bottom{
-    height: 4rem;
+    width: 1000px;
+    height: 80px;
     background-color: #c9c9c9;
     font-size: 12px;
     text-align: center;
-    line-height: 4rem;
+    line-height: 80px;
     color: white;
+    margin: auto;
+    clear: left;
   }
 </style>

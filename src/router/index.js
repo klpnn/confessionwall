@@ -5,6 +5,8 @@ import Lostandfound from '../components/lostandfound/Lostandfound'
 import Login from '../components/login/Login'
 import Register from '../components/register/Register'
 import RealName from '../components/index/RealName'
+import Anonymous from '../components/index/Anonymous'
+import Confession from '../components/index/Confession'
 
 Vue.use(Router)
 
@@ -24,11 +26,23 @@ export default new Router({
       path: '/wall',
       name: 'index',
       component: Index,
-      children: [{
-        path: 'realName',
-        name: 'realName',
-        component: RealName
-      }]
+      children: [
+        {
+          path: 'realName',
+          name: 'realName',
+          component: RealName
+        },
+        {
+          path: 'anonymous',
+          name: 'anonymous',
+          component: Anonymous
+        },
+        {
+          path: 'confession',
+          name: 'confession',
+          component: Confession
+        }
+      ]
     },
     {
       path: '/lostandfound',

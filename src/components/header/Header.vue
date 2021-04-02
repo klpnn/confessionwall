@@ -57,7 +57,7 @@ export default {
     margin: 0 auto;
   }
   #logo{
-    width: 8rem;
+    width: 10rem;
     position: relative;
     top: 0.5rem;
     left: 0.8rem;

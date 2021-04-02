@@ -13,14 +13,8 @@
 </template>
 
 <script>
-import Header2 from '../header/Header2'
-import Bottom from '../bottom/Bottom'
 export default {
-  name: 'Login',
-  components: {
-    Bottom,
-    Header2
-  }
+  name: 'Login'
 }
 </script>
 
@@ -32,7 +26,7 @@ export default {
   #main{
     width: 46rem;
     height: 23rem;
-    margin: 1rem auto;
+    margin: 1rem auto 50px;
     background: url("../../assets/bg.png");
     background-size: 100% 100%;
     border-radius: 5px;
@@ -55,6 +49,7 @@ export default {
   }
   #card p{
     width: 22rem;
+    height: 3rem;
     font-size: 40px;
     font-family: huazi;
     text-align: center;
@@ -67,7 +62,7 @@ export default {
     height: 2rem;
     margin: 0 auto;
     position: relative;
-    top: -20rem;
+    top: -13.5rem;
     left: 4.5rem;
   }
   #mima{
@@ -75,7 +70,7 @@ export default {
     height: 2rem;
     margin: 0 auto;
     position: relative;
-    top: -19rem;
+    top: -12.5rem;
     left: 4.5rem;
   }
   #dlbtn{
@@ -83,7 +78,7 @@ export default {
     height: 2rem;
     margin: 0 auto;
     position: relative;
-    top: -17rem;
+    top: -10rem;
     left: 8rem;
     background-color: #66baff;
     border: 2px solid #858585;
