@@ -3,11 +3,12 @@
   <div id="main1">
     <img src="../../assets/lover.png" alt="">
     <div id="card1">
-      <p>Register</p>
-      <input type="text" placeholder="请输入账号" id="user1"/><br>
-      <input type="password" placeholder="请输入密码" id="mima1"/><br>
-      <input type="password" placeholder="确认密码" id="qrmima"/><br>
-      <button id="zcbtn">注册</button>
+      <h1>Register</h1>
+      <input type="text" v-model="phone" placeholder="请输入手机号" id="user1"/><br>
+      <input type="password" v-model="password" placeholder="请输入密码" id="mima1"/><br>
+      <input type="password" v-model="confirmpswd" placeholder="确认密码" id="qrmima"/><br>
+      <p id="regimsg">{{message}}</p>
+      <button @click="register" id="zcbtn">注册</button>
     </div>
   </div>
 </div>
@@ -15,7 +16,27 @@
 
 <script>
 export default {
-  name: 'Register'
+  name: 'Register',
+  data () {
+    return {
+      message: '',
+      phone: '',
+      password: '',
+      confirmpswd: '',
+      phoneReg: /^1[3-9][0-9]{9}/
+    }
+  },
+  methods: {
+    register () {
+      if (!this.phoneReg.test(this.phone)) {
+        this.message = '请输入合法手机号哦~'
+      } else {
+        if (this.password !== this.confirmpswd) {
+          this.message = '哎呀，两次密码不一致'
+        }
+      }
+    }
+  }
 }
 </script>
 
@@ -48,7 +69,7 @@ export default {
     top: 0.5rem;
     background-color: rgba(230,230,230,0.58);
   }
-  #card1 p{
+  #card1 h1{
     width: 22rem;
     height: 2rem;
     font-size: 40px;
@@ -57,6 +78,7 @@ export default {
     color: #666666;
     position: relative;
     top: -20rem;
+    font-weight: normal;
   }
   #user1{
     width: 13rem;
@@ -105,5 +127,16 @@ export default {
     color: white;
     position: absolute;
     bottom: 0;
+  }
+  #regimsg{
+    width: 13rem;
+    height: 15px;
+    font-family: "Adobe 黑体 Std R";
+    color: darkred;
+    font-size: 12px;
+    position: absolute;
+    top: 15rem;
+    left: 4.5rem;
+    text-align: center;
   }
 </style>

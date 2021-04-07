@@ -2,10 +2,10 @@
   <div id="header">
     <img src="../../assets/logo.png" id="logo" alt=""/>
     <div class="link_bar">
-      <a href="/"> <span @click="navClicka" ref="a" class="nav" id="link1">墙墙</span></a>
-      <a href="/lostandfound"><span @click="navClickb" ref="b" id="link2">失物招领</span></a>
-      <a href="/login"><span @click="navClickc" ref="c" id="link3">登录</span></a>
-      <a href="/register"><span @click="navClickd" ref="d" id="link4">注册</span></a>
+      <router-link to="/"> <span @click="navClicka" ref="a" class="nav" id="link1">墙墙</span></router-link>
+      <router-link to="/lostandfound"><span @click="navClickb" ref="b" id="link2">失物招领</span></router-link>
+      <router-link to="/login"><span @click="navClickc" ref="c" id="link3">登录</span></router-link>
+      <router-link to="/register"><span @click="navClickd" ref="d" id="link4">注册</span></router-link>
     </div>
     <img src="../../assets/xin.png" id="heart" alt="">
   </div>
@@ -105,5 +105,8 @@ export default {
   }
   .notnav{
     text-shadow: 0px 0px 0px #ffffff;
+  }
+  .router-link-active{
+    text-shadow: 1px 1px 2px #ffffff,-1px -1px 2px #ffffff,1px -1px 2px #ffffff,-1px 1px 2px #ffffff;
   }
 </style>

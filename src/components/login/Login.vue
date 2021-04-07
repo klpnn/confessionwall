@@ -3,7 +3,7 @@
   <div id="main">
     <img src="../../assets/lover.png" alt="">
     <div id="card">
-      <p>Log in</p>
+      <h1>Log in</h1>
       <input type="text" placeholder="请输入账号" id="user"/><br>
       <input type="password" placeholder="请输入密码" id="mima"/><br>
       <button id="dlbtn">登录</button>
@@ -47,7 +47,7 @@ export default {
     top: 0.5rem;
     background-color: rgba(230,230,230,0.58);
   }
-  #card p{
+  #card h1{
     width: 22rem;
     height: 3rem;
     font-size: 40px;
@@ -56,6 +56,7 @@ export default {
     color: #666666;
     position: relative;
     top: -20rem;
+    font-weight: normal;
   }
   #user{
     width: 13rem;

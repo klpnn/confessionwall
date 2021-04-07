@@ -1,9 +1,9 @@
 <template>
   <div id="index">
     <div class="title">
-      <a href="/wall/realname"><span class="title1" @click="clickTitleone" ref="one">实名</span></a>
-      <a href="/wall/anonymous"><span @click="clickTitletwo" ref="two">匿名</span></a>
-      <a href="/wall/confession"><span @click="clickTitlethree" ref="three">表白</span></a>
+      <router-link to="/wall/realname"><span class="title1" @click="clickTitleOne" ref="one">实名</span></router-link>
+      <router-link to="/wall/anonymous"><span @click="clickTitleTwo" ref="two">匿名</span></router-link>
+      <router-link to="/wall/confession"><span @click="clickTitleThree" ref="three">表白</span></router-link>
     </div>
     <router-view></router-view>
   </div>
@@ -17,6 +17,23 @@ export default {
   components: {
     Header,
     Bottom
+  },
+  methods: {
+    clickTitleOne () {
+      this.$refs.one.className = 'title1'
+      this.$refs.two.className = 'title2'
+      this.$refs.three.className = 'title2'
+    },
+    clickTitleTwo () {
+      this.$refs.two.className = 'title1'
+      this.$refs.one.className = 'title2'
+      this.$refs.three.className = 'title2'
+    },
+    clickTitleThree () {
+      this.$refs.three.className = 'title1'
+      this.$refs.two.className = 'title2'
+      this.$refs.one.className = 'title2'
+    }
   }
 }
 </script>
@@ -50,5 +67,8 @@ export default {
   }
   .title span:hover{
     color: #cccccc;
+  }
+  .router-link-active{
+    color: #f4abbc;
   }
 </style>
