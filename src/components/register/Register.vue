@@ -117,17 +117,6 @@ export default {
   #zcbtn:hover{
     border: 2px solid #000000;
   }
-  #bottom{
-    width: 50rem;
-    height: 4rem;
-    background-color: #c9c9c9;
-    font-size: 12px;
-    text-align: center;
-    line-height: 4rem;
-    color: white;
-    position: absolute;
-    bottom: 0;
-  }
   #regimsg{
     width: 13rem;
     height: 15px;

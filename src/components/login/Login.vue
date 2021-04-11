@@ -4,17 +4,38 @@
     <img src="../../assets/lover.png" alt="">
     <div id="card">
       <h1>Log in</h1>
-      <input type="text" placeholder="请输入账号" id="user"/><br>
-      <input type="password" placeholder="请输入密码" id="mima"/><br>
-      <button id="dlbtn">登录</button>
+      <input type="text" placeholder="请输入账号" id="user" v-model="phone"/><br>
+      <input type="password" placeholder="请输入密码" id="mima" v-model="password"/><br>
+      <p class="tip">{{message}}</p>
+      <button id="dlbtn" @click="login">登录</button>
     </div>
   </div>
 </div>
 </template>
 
 <script>
+import ajax from 'axios'
 export default {
-  name: 'Login'
+  name: 'Login',
+  methods: {
+    login () {
+      let that = this
+      ajax.post('http://feichai.xyz/user/login?phone=' + that.phone + 'password=' + that.password).then(function (res) {
+        if (res.data === '$false') {
+          that.message = '账号或密码错误！'
+        }
+      }).catch(function () {
+        that.message = '发生未知错误！'
+      })
+    }
+  },
+  data () {
+    return {
+      phone: '',
+      password: '',
+      message: ''
+    }
+  }
 }
 </script>
 
@@ -97,5 +118,16 @@ export default {
     color: white;
     position: absolute;
     bottom: 0;
+  }
+  .tip{
+    width: 13rem;
+    height: 15px;
+    font-family: "Adobe 黑体 Std R";
+    color: darkred;
+    font-size: 12px;
+    position: absolute;
+    top: 14rem;
+    left: 4.5rem;
+    text-align: center;
   }
 </style>
