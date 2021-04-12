@@ -7,7 +7,8 @@ const store = new Vuex.Store({
   state: {
     userInfo: {
       phone: '',
-      nickName: ''
+      nickName: '',
+      avatar: ''
     },
     isLogin: false
   }
