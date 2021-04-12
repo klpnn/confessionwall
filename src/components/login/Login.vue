@@ -16,19 +16,21 @@
 <script>
 import ajax from 'axios'
 import store from '../../vuex/store'
+import md5 from 'js-md5'
 export default {
   name: 'Login',
   methods: {
     login () {
       let that = this
-      ajax.post('/user/login?phone=' + that.phone + '&password=' + that.password).then(function (res) {
+      let md5Password = md5('密码：' + this.password)
+      ajax.post('/user/login?phone=' + that.phone + '&password=' + md5Password).then(function (res) {
         let resData = res.data
         if (resData.sign === '$false') {
           that.message = '用户名或密码错误！'
         } else {
-          console.log(resData.userInfo)
           store.state.userInfo = resData.userInfo
           store.state.isLogin = true
+          // window.location.href = '/'
         }
       })
     }
@@ -37,8 +39,7 @@ export default {
     return {
       phone: '',
       password: '',
-      message: '',
-      userInfo: {}
+      message: ''
     }
   }
 }

@@ -2,7 +2,7 @@
   <div id="header">
     <img src="../../assets/logo.png" id="logo" alt=""/>
     <div class="link_bar">
-      <router-link to="/"> <span @click="navClicka" ref="a" class="nav" id="link1">墙墙</span></router-link>
+      <router-link to="/"> <span @click="navClicka" ref="a" id="link1">墙墙</span></router-link>
       <router-link to="/lostandfound"><span @click="navClickb" ref="b" id="link2">失物招领</span></router-link>
       <div v-if="isLogin === false">
         <router-link to="/login"><span @click="navClickc" ref="c" id="link3">登录</span></router-link>
@@ -54,6 +54,25 @@ export default {
     },
     isLogin () {
       return store.state.isLogin
+    }
+  },
+  mounted () {
+    let path = this.$route.path
+    path = path.split('/')[1]
+    console.log(path)
+    switch (path) {
+      case '':
+      case 'wall':
+        this.$refs.a.className = 'nav'
+        break
+      case 'lostandfound':
+        this.$refs.b.className = 'nav'
+        break
+      case 'login':
+        this.$refs.c.className = 'nav'
+        break
+      default:
+        this.$refs.d.className = 'nav'
     }
   }
 }
@@ -121,8 +140,5 @@ export default {
   }
   .notnav{
     text-shadow: 0px 0px 0px #ffffff;
-  }
-  .router-link-active{
-    text-shadow: 1px 1px 2px #ffffff,-1px -1px 2px #ffffff,1px -1px 2px #ffffff,-1px 1px 2px #ffffff;
   }
 </style>
