@@ -4,14 +4,22 @@
     <div class="link_bar">
       <router-link to="/"> <span @click="navClicka" ref="a" class="nav" id="link1">墙墙</span></router-link>
       <router-link to="/lostandfound"><span @click="navClickb" ref="b" id="link2">失物招领</span></router-link>
-      <router-link to="/login"><span @click="navClickc" ref="c" id="link3">登录</span></router-link>
-      <router-link to="/register"><span @click="navClickd" ref="d" id="link4">注册</span></router-link>
+      <div v-if="isLogin === false">
+        <router-link to="/login"><span @click="navClickc" ref="c" id="link3">登录</span></router-link>
+        <router-link to="/register"><span @click="navClickd" ref="d" id="link4">注册</span></router-link>
+      </div>
+      <div v-if="isLogin" class="userInfo">
+        <img v-bind:src="userInfo.header">
+        <span>{{userInfo.nickName}}</span>
+      </div>
     </div>
     <img src="../../assets/xin.png" id="heart" alt="">
   </div>
 </template>
 
 <script>
+import store from '../../vuex/store'
+
 export default {
   name: 'Header',
   methods: {
@@ -38,6 +46,14 @@ export default {
       this.$refs.a.className = 'notnav'
       this.$refs.b.className = 'notnav'
       this.$refs.c.className = 'notnav'
+    }
+  },
+  computed: {
+    userInfo () {
+      return store.state.userInfo
+    },
+    isLogin () {
+      return store.state.isLogin
     }
   }
 }
