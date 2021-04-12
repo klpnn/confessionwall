@@ -15,17 +15,21 @@
 
 <script>
 import ajax from 'axios'
+import store from '../../vuex/store'
 export default {
   name: 'Login',
   methods: {
     login () {
       let that = this
-      ajax.post('http://feichai.xyz/user/login?phone=' + that.phone + 'password=' + that.password).then(function (res) {
-        if (res.data === '$false') {
-          that.message = '账号或密码错误！'
+      ajax.post('/user/login?phone=' + that.phone + '&password=' + that.password).then(function (res) {
+        let resData = res.data
+        if (resData.sign === '$false') {
+          that.message = '用户名或密码错误！'
+        } else {
+          console.log(resData.userInfo)
+          store.state.userInfo = resData.userInfo
+          store.state.isLogin = true
         }
-      }).catch(function () {
-        that.message = '发生未知错误！'
       })
     }
   },
@@ -33,7 +37,8 @@ export default {
     return {
       phone: '',
       password: '',
-      message: ''
+      message: '',
+      userInfo: {}
     }
   }
 }
