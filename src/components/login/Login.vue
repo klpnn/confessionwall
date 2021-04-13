@@ -30,7 +30,7 @@ export default {
         } else {
           store.state.userInfo = resData.userInfo
           store.state.isLogin = true
-          // window.location.href = '/'
+          window.location.href = '/'
         }
       })
     }

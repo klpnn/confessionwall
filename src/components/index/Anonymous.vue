@@ -1,9 +1,45 @@
 <template>
   <div id="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <div id="line1"></div>
     <div id="sxy1">
       <a href="javascript:"> <span id="left1">上一页</span></a>
       <a href="javascript:"><span id="right1">下一页</span></a>
+    </div>
+    <div class="display">
+    <div class="row">
+      <div class="col-md-3">
+        <p>xxx我爱你</p>
+    </div>
+      <div class="col-md-3">
+        <p>xxx我爱你</p>
+      </div>
+      <div class="col-md-3">
+        <p>xxx我爱你</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p>XXX我爱你</p>
+      </div>
+      <div class="col-md-3">
+        <p>xxx我爱你</p>
+      </div>
+      <div class="col-md-3">
+        <p>xxx我爱你</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p>xxx我爱你</p>
+      </div>
+      <div class="col-md-3">
+        <p>xxx我爱你</p>
+      </div>
+      <div class="col-md-3">
+        <p>xxx我爱你</p>
+      </div>
+    </div>
     </div>
     <div id="page1">
       <label>页码：&emsp;<input type="text" value="1"/></label>&emsp;
@@ -48,49 +84,6 @@ export default {
   #right1:hover{
     color: #858585;
   }
-  .container{
-    width: 90%;
-    height: 450px;
-    margin: 5% auto 130px;
-  }
-  .words{
-    width: 25%;
-    height: 30%;
-    float: left;
-    margin: 2% 4%;
-  }
-  .onetr{
-    width: 100%;
-    height: 64%;
-    background-color: #66baff;
-    display: inline-block;
-    padding: 2% 5%;
-    font-size: 14px;
-  }
-  .twotr{
-    width: 100%;
-    height: 28%;
-    background-color: white;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    text-indent: 1rem;
-    font-size: 12px;
-    padding: 0.5% 10% 0.5% 0;
-  }
-  .firstspan{
-    float: left;
-  }
-  .secondspan{
-    float: right;
-  }
-  .pink{
-    background-color: #f4abbc;
-  }
-  .blue{
-    background-color: #66baff;
-  }
-  .gray{
-    background-color: #5b5f6a;
-  }
   #page1{
     width: 11rem;
     height: 2rem;
@@ -101,15 +94,16 @@ export default {
   }
   #page1 input{
     width: 3rem;
-    height: 1rem;
+    height: 1.2rem;
     border: 1px solid #66baff;
     position: absolute;
+    margin: 0.3rem 0;
   }
   #page1 input:hover{
     border: 1px solid #000000;
   }
   #pagebtn1{
-    width: 2.8rem;
+    width: 4rem;
     height: 1.5rem;
     background-color: #66baff;
     border: 0;
@@ -118,9 +112,21 @@ export default {
     color: #ffffff;
     position: absolute;
     margin-left: 3.5rem;
-    margin-top: -0.15rem;
+    margin-top: 0.15rem;
   }
-  #pagebtn1:hover{
+  #pagebtn1:hover {
     border: 1px solid #2c3e50;
+  }
+  .col-md-3{
+    border: rgba(67, 59, 65, 0.4) 0.1rem solid;
+    margin: 1rem 3.4rem;
+    border-radius: 0.5rem;
+    height: 8rem;
+    background-color: #46fff2;
+  }
+  .display{
+    margin: 3rem 2rem;
+    text-align: center;
+    border-radius: 0.3rem;
   }
 </style>
