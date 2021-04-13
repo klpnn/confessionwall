@@ -5,7 +5,7 @@
       <a href="javascript:"> <span id="left">上一页</span></a>
       <a href="javascript:"><span id="right">下一页</span></a>
     </div>
-    <div class="container">
+    <div class="display">
       <div class="words">
         <div class="onetr"><p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p></div>
         <div class="twotr"><p><span class="firstspan">小红</span> <span class="secondspan">1月1日</span></p></div>
@@ -86,8 +86,8 @@ export default {
   #right:hover{
     color: #858585;
   }
-  .container{
-    width: 90%;
+  .display{
+    width: 100%;
     height: 450px;
     margin: 5% auto 130px;
   }
@@ -139,15 +139,16 @@ export default {
   }
   #page input{
     width: 3rem;
-    height: 1rem;
+    height: 1.2rem;
     border: 1px solid #66baff;
     position: absolute;
+    margin:0.3rem 0 ;
   }
   #page input:hover{
     border: 1px solid #000000;
   }
   #pagebtn{
-    width: 2.8rem;
+    width: 5rem;
     height: 1.5rem;
     background-color: #66baff;
     border: 0;
@@ -156,7 +157,7 @@ export default {
     color: #ffffff;
     position: absolute;
     margin-left: 3.5rem;
-    margin-top: -0.15rem;
+    margin-top: 0.15rem;
   }
   #pagebtn:hover{
     border: 1px solid #2c3e50;
