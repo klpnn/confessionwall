@@ -5,13 +5,14 @@ import App from './App'
 import router from './router'
 import '../src/bs/css/bootstrap.css'
 import axios from 'axios'
+import store from './vuex/store'
 axios.defaults.baseURL = 'http://feichai.xyz:5000'
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

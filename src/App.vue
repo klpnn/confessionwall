@@ -9,12 +9,26 @@
 <script>
 import Header from './components/header/Header'
 import Bottom from './components/bottom/Bottom'
+import ajax from 'axios'
+import store from './vuex/store'
+
 export default {
   components: {
     Header,
     Bottom
   },
-  name: 'App'
+  name: 'App',
+  created () {
+    ajax.get('/user/checkLogin').then(function (res) {
+      let resData = res.data
+      if (resData === '$success') {
+        store.state.userInfo = res.data.userInfo
+        store.state.isLogin = true
+      } else {
+        store.state.isLogin = false
+      }
+    })
+  }
 }
 </script>
 
