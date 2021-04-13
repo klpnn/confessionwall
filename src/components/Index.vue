@@ -13,7 +13,7 @@
 import Header from './header/Header'
 import Bottom from './bottom/Bottom'
 export default {
-  name: 'index.vue',
+  name: 'index',
   components: {
     Header,
     Bottom
@@ -45,9 +45,9 @@ export default {
     margin: auto;
   }
   .title{
-    width: 16rem;
-    height: 1.3rem;
-    margin: 0.5rem auto;
+    width: 35%;
+    height: 10%;
+    margin: 0.5rem 38%;
     font-size: 16px;
     font-weight: bold;
     color: black;

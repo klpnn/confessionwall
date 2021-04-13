@@ -20,7 +20,7 @@ export default {
   methods: {
     login () {
       let that = this
-      ajax.post('http://feichai.xyz/user/login?phone=' + that.phone + 'password=' + that.password).then(function (res) {
+      ajax.post('/user/login?phone=' + that.phone + 'password=' + that.password).then(function (res) {
         if (res.data === '$false') {
           that.message = '账号或密码错误！'
         }

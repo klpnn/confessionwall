@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import '../src/bs/css/bootstrap.css'
+import axios from 'axios'
+axios.defaults.baseURL = 'http://feichai.xyz:5000'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
