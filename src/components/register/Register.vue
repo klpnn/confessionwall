@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import ajax from 'axios'
+
 export default {
   name: 'Register',
   data () {
@@ -28,11 +30,23 @@ export default {
   },
   methods: {
     register () {
+      // eslint-disable-next-line no-unused-vars
+      let that = this
       if (!this.phoneReg.test(this.phone)) {
         this.message = '请输入合法手机号哦~'
       } else {
         if (this.password !== this.confirmpswd) {
           this.message = '哎呀，两次密码不一致'
+        } else {
+          ajax.post('/user/register?phone=' + that.phone + 'password=' + that.password).then(function (res) {
+            if (res.data === '$success') {
+              that.message = '注册成功啦！'
+            } else {
+              that.message = '注册失败了~'
+            }
+          }).catch(function () {
+            that.message = '服务器发生未知错误'
+          })
         }
       }
     }

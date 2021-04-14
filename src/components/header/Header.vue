@@ -10,7 +10,10 @@
       </div>
       <div v-if="isLogin" class="userInfo">
         <img v-bind:src="userInfo.header">
-        <span>{{userInfo.nickName}}</span>
+        <a href="javascript:"> <span id="link5">{{userInfo.nickName}}</span></a>
+        <a href="javascript:"> <div id="zhuxiao">
+          <span @click="clickZhuxiao">注销</span>
+        </div></a>
       </div>
     </div>
     <img src="../../assets/xin.png" id="heart" alt="">
@@ -22,6 +25,11 @@ import store from '../../vuex/store'
 
 export default {
   name: 'Header',
+  data () {
+    return {
+      zhuxiao: false
+    }
+  },
   methods: {
     navClicka () {
       this.$refs.a.className = 'nav'
@@ -46,6 +54,19 @@ export default {
       this.$refs.a.className = 'notnav'
       this.$refs.b.className = 'notnav'
       this.$refs.c.className = 'notnav'
+    },
+    onmouseovername () {
+      this.zhuxiao = true
+    },
+    onmouseoutname () {
+      this.zhuxiao = false
+    },
+    clickZhuxiao () {
+      this.nextTick(function () {
+        this.isLogin = false
+        window.location.href = '/login'
+        console.log('ok')
+      })
     }
   },
   computed: {
@@ -59,7 +80,6 @@ export default {
   mounted () {
     let path = this.$route.path
     path = path.split('/')[1]
-    console.log(path)
     switch (path) {
       case '':
       case 'wall':
@@ -140,5 +160,43 @@ export default {
   }
   .notnav{
     text-shadow: 0px 0px 0px #ffffff;
+  }
+  .userInfo img{
+    width: 15%;
+    border-radius: 50%;
+    position: absolute;
+    left: 60%;
+    top: -22%;
+  }
+  #link5{
+    left: 80%;
+    font-size: 22px;
+    padding-bottom: 20%;
+    height: 10%;
+    background-color: white;
+  }
+  #link5:hover #zhuxiao{
+    display: block;
+  }
+  #zhuxiao{
+    position: relative;
+    font-family: kuaileti;
+    color: #858585;
+    width: 15%;
+    height: 70%;
+    padding-top: 5px;
+    top: 100%;
+    left: 80%;
+    border-top: 2px solid #858585;
+  }
+  #zhuxiao:hover{
+    display: block;
+  }
+  #zhuxiao span{
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
   }
 </style>
