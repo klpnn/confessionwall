@@ -1,9 +1,9 @@
 <template>
   <div id="index">
     <div class="title">
-      <router-link to="/wall/realname"><span class="title1" @click="clickTitleOne" ref="one">实名</span></router-link>
-      <router-link to="/wall/anonymous"><span @click="clickTitleTwo" ref="two">匿名</span></router-link>
-      <router-link to="/wall/confession"><span @click="clickTitleThree" ref="three">表白</span></router-link>
+      <router-link to="/wall/realname" @click="clickTitleOne"><span class="title1" @click="clickTitleOne" ref="one">实名</span></router-link>
+      <router-link to="/wall/anonymous" @click="clickTitleTwo"><span @click="clickTitleTwo" ref="two">匿名</span></router-link>
+      <router-link to="/wall/confession" @click="clickTitleThree"><span @click="clickTitleThree" ref="three">表白</span></router-link>
     </div>
     <router-view></router-view>
   </div>

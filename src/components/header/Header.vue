@@ -10,10 +10,11 @@
       </div>
       <div v-if="isLogin" class="userInfo">
         <img v-bind:src="userInfo.header">
-        <a href="javascript:"> <span id="link5">{{userInfo.nickName}}</span></a>
-        <a href="javascript:"> <div id="zhuxiao">
-          <span @click="clickZhuxiao">注销</span>
-        </div></a>
+        <div id="user_div">
+          <a href="javascript:"> <span id="link5">{{userInfo.nickName}}</span></a><hr>
+          <a href="javascript:">
+            <span @click="clickZhuxiao" id="link6">注销</span></a>
+        </div>
       </div>
     </div>
     <img src="../../assets/xin.png" id="heart" alt="">
@@ -55,18 +56,10 @@ export default {
       this.$refs.b.className = 'notnav'
       this.$refs.c.className = 'notnav'
     },
-    onmouseovername () {
-      this.zhuxiao = true
-    },
-    onmouseoutname () {
-      this.zhuxiao = false
-    },
     clickZhuxiao () {
-      this.nextTick(function () {
-        this.isLogin = false
-        window.location.href = '/login'
-        console.log('ok')
-      })
+      store.state.isLogin = false
+      store.state.userInfo = {}
+      window.location.href = '/login'
     }
   },
   computed: {
@@ -169,27 +162,18 @@ export default {
     top: -22%;
   }
   #link5{
-    left: 80%;
+    position: relative;
     font-size: 22px;
-    padding-bottom: 20%;
-    height: 10%;
-    background-color: white;
+  }
+  #link6 {
+    position: relative;
+    font-size: 22px;
+    display: none;
+  }
+  a {
+    text-decoration: none;
   }
   #link5:hover #zhuxiao{
-    display: block;
-  }
-  #zhuxiao{
-    position: relative;
-    font-family: kuaileti;
-    color: #858585;
-    width: 15%;
-    height: 70%;
-    padding-top: 5px;
-    top: 100%;
-    left: 80%;
-    border-top: 2px solid #858585;
-  }
-  #zhuxiao:hover{
     display: block;
   }
   #zhuxiao span{
@@ -198,5 +182,24 @@ export default {
     font-size: 18px;
     font-weight: normal;
     text-align: center;
+  }
+  #user_div {
+    position: relative;
+    left: +240px;
+    width: 100px;
+    margin-right: 0;
+  }
+  #user_div:hover #link6 {
+    display: block;
+    width: 100%;
+  }
+  #user_div:hover hr {
+    display: block;
+  }
+  #user_div hr {
+    position: relative;
+    width: 50px;
+    left: -26px;
+    display: none;
   }
 </style>
