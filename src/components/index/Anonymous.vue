@@ -97,7 +97,6 @@ export default {
     height: 1.2rem;
     border: 1px solid #66baff;
     position: absolute;
-    margin: 0.3rem 0;
   }
   #page1 input:hover{
     border: 1px solid #000000;
@@ -112,7 +111,6 @@ export default {
     color: #ffffff;
     position: absolute;
     margin-left: 3.5rem;
-    margin-top: 0.15rem;
   }
   #pagebtn1:hover {
     border: 1px solid #2c3e50;

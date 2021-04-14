@@ -135,20 +135,19 @@ export default {
     color: #66baff;
     font-size: 14px;
     font-weight: bold;
-    margin: 0 auto 1rem;
+    margin: -1rem auto 1rem;
   }
   #page input{
     width: 3rem;
     height: 1.2rem;
     border: 1px solid #66baff;
     position: absolute;
-    margin:0.3rem 0 ;
   }
   #page input:hover{
     border: 1px solid #000000;
   }
   #pagebtn{
-    width: 5rem;
+    width: 4rem;
     height: 1.5rem;
     background-color: #66baff;
     border: 0;
@@ -157,7 +156,6 @@ export default {
     color: #ffffff;
     position: absolute;
     margin-left: 3.5rem;
-    margin-top: 0.15rem;
   }
   #pagebtn:hover{
     border: 1px solid #2c3e50;

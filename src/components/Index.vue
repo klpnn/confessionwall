@@ -63,7 +63,8 @@ export default {
     color: black;
   }
   .title span{
-    margin: 0 1.5rem;
+    width: 100%;
+    padding: 0 1.5rem;
   }
   .title span:hover{
     color: #cccccc;
