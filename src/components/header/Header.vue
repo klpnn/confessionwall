@@ -9,7 +9,7 @@
         <router-link to="/register"><span @click="navClickd" ref="d" id="link4">注册</span></router-link>
       </div>
       <div v-if="isLogin" class="userInfo">
-        <img v-bind:src="userInfo.header">
+        <router-link to="/perinfo"> <img v-bind:src="'http://feichai.xyz:5000' + userInfo.header"></router-link>
         <div id="user_div">
           <a href="javascript:"> <span id="link5">{{userInfo.nickName}}</span></a><hr>
           <a href="javascript:">
@@ -129,7 +129,7 @@ export default {
     left: 0;
   }
   #link2 {
-    width: 60%;
+    width: 35%;
     left: 22%;
   }
   #link3 {
@@ -163,11 +163,13 @@ export default {
   }
   #link5{
     position: relative;
-    font-size: 22px;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
   }
   #link6 {
     position: relative;
-    font-size: 22px;
+    font-size: 18px;
     display: none;
   }
   a {
@@ -185,21 +187,22 @@ export default {
   }
   #user_div {
     position: relative;
-    left: +240px;
+    left: +230px;
     width: 100px;
     margin-right: 0;
+    text-align: center;
   }
   #user_div:hover #link6 {
     display: block;
     width: 100%;
+    text-align: center;
   }
   #user_div:hover hr {
     display: block;
   }
   #user_div hr {
     position: relative;
-    width: 50px;
-    left: -26px;
+    width: 70%;
     display: none;
   }
 </style>

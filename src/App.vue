@@ -20,7 +20,7 @@ export default {
   name: 'App',
   created () {
     ajax.get('/user/checkLogin').then(function (res) {
-      let resData = res.data
+      let resData = res.data.sign
       if (resData === '$success') {
         store.state.userInfo = res.data.userInfo
         store.state.isLogin = true

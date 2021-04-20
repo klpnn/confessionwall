@@ -7,6 +7,7 @@ import Register from '../components/register/Register'
 import RealName from '../components/index/RealName'
 import Anonymous from '../components/index/Anonymous'
 import Confession from '../components/index/Confession'
+import Perinfo from '../components/perinfo/Perinfo'
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path: '/perinfo',
+      name: 'perinfo',
+      component: Perinfo
     }
   ],
   mode: 'history'
