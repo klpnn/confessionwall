@@ -23,6 +23,7 @@
 
 <script>
 import store from '../../vuex/store'
+import ajax from 'axios'
 
 export default {
   name: 'Header',
@@ -30,6 +31,18 @@ export default {
     return {
       zhuxiao: false
     }
+  },
+  created () {
+    ajax.get('/user/checkLogin').then(function (res) {
+      let resData = res.data.sign
+      console.log(res)
+      if (resData === '$success') {
+        store.state.userInfo = res.data.userInfo
+        store.state.isLogin = true
+      } else {
+        store.state.isLogin = false
+      }
+    })
   },
   methods: {
     navClicka () {
