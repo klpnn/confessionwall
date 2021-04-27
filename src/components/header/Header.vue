@@ -13,7 +13,7 @@
         <div id="user_div">
           <a href="javascript:"> <span id="link5">{{userInfo.nickName}}</span></a><hr>
           <a href="javascript:">
-            <span @click="clickZhuxiao" id="link6">注销</span></a>
+            <span @click="unLogin" id="link6">注销</span></a>
         </div>
       </div>
     </div>
@@ -69,10 +69,11 @@ export default {
       this.$refs.b.className = 'notnav'
       this.$refs.c.className = 'notnav'
     },
-    clickZhuxiao () {
+    unLogin () {
       store.state.isLogin = false
       store.state.userInfo = {}
-      window.location.href = '/login'
+      ajax.post('/user/unLogin')
+      document.cookie = ''
     }
   },
   computed: {
