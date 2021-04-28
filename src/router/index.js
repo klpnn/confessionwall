@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
-import Lostandfound from '../components/lostandfound/Lostandfound'
-import Login from '../components/login/Login'
-import Register from '../components/register/Register'
-import RealName from '../components/index/RealName'
-import Anonymous from '../components/index/Anonymous'
-import Confession from '../components/index/Confession'
-import Perinfo from '../components/perinfo/Perinfo'
+import Lostandfound from '../components/pc/lostandfound/Lostandfound'
+import Login from '../components/pc/login/Login'
+import Register from '../components/pc/register/Register'
+import RealName from '../components/pc/index/RealName'
+import Anonymous from '../components/pc/index/Anonymous'
+import Confession from '../components/pc/index/Confession'
+import Perinfo from '../components/pc/perinfo/Perinfo'
 
 Vue.use(Router)
 

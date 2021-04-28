@@ -5,7 +5,6 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import store from './vuex/store'
-import './bs/css/bootstrap.css'
 
 axios.defaults.baseURL = 'http://localhost:5000'
 axios.defaults.withCredentials = true

@@ -1,17 +1,21 @@
 <template>
   <div id="index">
-    <div class="title">
-      <router-link to="/wall/realname" @click="clickTitleOne"><span class="title1" @click="clickTitleOne" ref="one">实名</span></router-link>
-      <router-link to="/wall/anonymous" @click="clickTitleTwo"><span @click="clickTitleTwo" ref="two">匿名</span></router-link>
-      <router-link to="/wall/confession" @click="clickTitleThree"><span @click="clickTitleThree" ref="three">表白</span></router-link>
+    <div v-if="!isPhone">
+      <div class="title">
+        <router-link to="/wall/realname" @click="clickTitleOne"><span class="title1" @click="clickTitleOne" ref="one">实名</span></router-link>
+        <router-link to="/wall/anonymous" @click="clickTitleTwo"><span @click="clickTitleTwo" ref="two">匿名</span></router-link>
+        <router-link to="/wall/confession" @click="clickTitleThree"><span @click="clickTitleThree" ref="three">表白</span></router-link>
+      </div>
+      <router-view></router-view>
     </div>
-    <router-view></router-view>
+    <div v-if="isPhone"></div>
   </div>
 </template>
 
 <script>
-import Header from './header/Header'
-import Bottom from './bottom/Bottom'
+import Header from './pc/header/Header'
+import Bottom from './pc/bottom/Bottom'
+import store from '../vuex/store'
 export default {
   name: 'index',
   components: {
@@ -33,6 +37,11 @@ export default {
       this.$refs.three.className = 'title1'
       this.$refs.two.className = 'title2'
       this.$refs.one.className = 'title2'
+    }
+  },
+  computed: {
+    isPhone: function () {
+      return store.state.isPhone
     }
   }
 }

@@ -10,7 +10,8 @@ const store = new Vuex.Store({
       nickName: '',
       header: ''
     },
-    isLogin: false
+    isLogin: false,
+    isPhone: true
   }
 })
 
