@@ -14,7 +14,9 @@ export default {
  .layui-header{
    background-color: #c2ebe0 ;
    font-size: 14px;
+   width: 100%;
    height: 3.5rem;
+   position: fixed;
  }
  #title{
    margin: 20px;
