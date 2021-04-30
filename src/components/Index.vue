@@ -11,9 +11,7 @@
       </div>
     </div>
     <div v-if="isPhone">
-      <div id="phindex">
-        <router-view></router-view>
-      </div>
+      <ConfessionWall></ConfessionWall>
     </div>
   </div>
 </template>
@@ -22,9 +20,13 @@
 import Header from './pc/header/Header'
 import Bottom from './pc/bottom/Bottom'
 import store from '../vuex/store'
+import RealName from './pc/index/RealName'
+import ConfessionWall from './phone/index/ConfessionWall'
 export default {
   name: 'index',
   components: {
+    ConfessionWall,
+    RealName,
     Header,
     Bottom
   },
@@ -88,11 +90,6 @@ export default {
   }
   #title .router-link-active{
     color: #f4abbc;
-  }
-  #phindex{
-    width: 100%;
-    height: 100%;
-    background-color: #f9f9f9;
   }
   #title1{
     font-size: 14px;
