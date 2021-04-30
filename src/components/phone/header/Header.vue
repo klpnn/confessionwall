@@ -12,9 +12,9 @@ export default {
 
 <style scoped>
  .layui-header{
-   /*background-color: #fde8ea;*/
    background-color: #c2ebe0 ;
    font-size: 14px;
+   height: 3.5rem;
  }
  #title{
    margin: 20px;

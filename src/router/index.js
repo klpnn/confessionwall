@@ -8,8 +8,6 @@ import RealName from '../components/pc/index/RealName'
 import Anonymous from '../components/pc/index/Anonymous'
 import Confession from '../components/pc/index/Confession'
 import Perinfo from '../components/pc/perinfo/Perinfo'
-import PhoneRealName from '../components/phone/index/RealName'
-import PhoneAnonymous from '../components/phone/index/Anonymous'
 
 Vue.use(Router)
 
@@ -24,11 +22,6 @@ export default new Router({
           path: '/',
           name: 'realName',
           component: RealName
-        },
-        {
-          path: '/',
-          name: 'realName',
-          component: PhoneRealName
         }
       ]
     },
@@ -51,16 +44,6 @@ export default new Router({
           path: 'confession',
           name: 'confession',
           component: Confession
-        },
-        {
-          path: 'phrealName',
-          name: 'phrealName',
-          component: PhoneRealName
-        },
-        {
-          path: 'phanonymous',
-          name: 'phanonymous',
-          component: PhoneAnonymous
         }
       ]
     },
