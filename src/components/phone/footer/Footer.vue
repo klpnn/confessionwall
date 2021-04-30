@@ -1,23 +1,23 @@
 <template>
   <div class="footer">
     <div>
-      <i class="iconfont" style="font-size: 2rem;color: #5b5959">&#xe619;</i><br/>
+      <i class="iconfont" style="font-size: 1.5rem;color: #5b5959">&#xe619;</i><br/>
       表白墙
     </div>
     <div>
-      <i class="iconfont" style="font-size: 2rem;color: #5b5959">&#xe60f;</i><br/>
+      <i class="iconfont" style="font-size: 1.5rem;color: #5b5959">&#xe60f;</i><br/>
       失物招领
     </div>
     <div>
-      <i class="iconfont" style="font-size: 2rem;color: #5b5959">&#xe621;</i><br/>
+      <i class="iconfont" style="font-size: 1.5rem;color: #5b5959">&#xe621;</i><br/>
       许愿墙
     </div>
     <div>
-      <i class="iconfont" style="font-size: 2rem;color: #5b5959">&#xe600;</i><br/>
+      <i class="iconfont" style="font-size: 1.5rem;color: #5b5959">&#xe600;</i><br/>
       表白
     </div>
     <div>
-      <i class="iconfont" style="font-size: 2rem;color: #5b5959">&#xe65c;</i><br/>
+      <i class="iconfont" style="font-size: 1.5rem;color: #5b5959">&#xe65c;</i><br/>
       我的
     </div>
 
@@ -33,10 +33,13 @@ export default {
 <style scoped>
 .footer {
   position: absolute;
-  top: calc(100% - 4rem);
+  top: calc(100% - 3.5rem);
   width: 100%;
-  height: 4rem;
-  background-color: #c1cbcc;
+  height: 3.5rem;
+  /*background-color: #c1cbcc;*/
+  background-color: #ffffff;
+  border-top: 1px solid #cccccc;
+  box-shadow: 0 0 5px #cccccc;
 }
 .footer div {
   position: relative;

@@ -1,14 +1,20 @@
 <template>
   <div id="index">
     <div v-if="!isPhone">
-      <div class="title">
-        <router-link to="/wall/realname" @click="clickTitleOne"><span class="title1" @click="clickTitleOne" ref="one">实名</span></router-link>
-        <router-link to="/wall/anonymous" @click="clickTitleTwo"><span @click="clickTitleTwo" ref="two">匿名</span></router-link>
-        <router-link to="/wall/confession" @click="clickTitleThree"><span @click="clickTitleThree" ref="three">表白</span></router-link>
+      <div id="pcindex">
+        <div class="title">
+          <router-link to="/wall/realName" @click="clickTitleOne"><span class="title1" @click="clickTitleOne" ref="one">实名</span></router-link>
+          <router-link to="/wall/anonymous" @click="clickTitleTwo"><span @click="clickTitleTwo" ref="two">匿名</span></router-link>
+          <router-link to="/wall/confession" @click="clickTitleThree"><span @click="clickTitleThree" ref="three">表白</span></router-link>
+        </div>
+        <router-view></router-view>
       </div>
-      <router-view></router-view>
     </div>
-    <div v-if="isPhone"></div>
+    <div v-if="isPhone">
+      <div id="phindex">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -50,6 +56,8 @@ export default {
 <style scoped>
   #index{
     font-family: 微软雅黑;
+  }
+  #pcindex{
     width: 1000px;
     margin: auto;
   }
@@ -78,7 +86,18 @@ export default {
   .title span:hover{
     color: #cccccc;
   }
-  .router-link-active{
+  #title .router-link-active{
     color: #f4abbc;
+  }
+  #phindex{
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+  }
+  #title1{
+    font-size: 14px;
+    text-align: center;
+    height: 2rem;
+    line-height: 2rem;
   }
 </style>
