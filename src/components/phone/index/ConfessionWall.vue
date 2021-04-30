@@ -1,86 +1,39 @@
 <template>
   <div class="confessionWall">
-    <div class="bar">
+    <div class="bar layui-border" v-for="confession in confessions">
       <img src="../../../assets/bg.png" class="touxiang">
       <div class="bar_r">
-        <p class="name">Toni</p>
-        <p class="date">1天前</p>
+        <p class="name">{{confession.name}}</p>
+        <p class="date">{{confession.time}}前</p>
       </div>
       <div class="content">
-        <p>今天看到一个女孩子，好可爱 ，好喜欢嘻嘻嘻</p>
+        <span>{{confession.content}}</span>
       </div>
       <div class="bar_b layui-row">
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe756;<span>12</span></i>
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe68c;<span>3</span></i>
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe611;<span>5</span></i>
-      </div>
-    </div>
-    <div class="bar">
-      <img src="../../../assets/bg.png" class="touxiang">
-      <div class="bar_r">
-        <p class="name">Toni</p>
-        <p class="date">1天前</p>
-      </div>
-      <div class="content">
-        <p>今天看到一个女孩子，好可爱 ，好喜欢嘻嘻嘻</p>
-      </div>
-      <div class="bar_b layui-row">
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe756;<span>12</span></i>
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe68c;<span>3</span></i>
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe611;<span>5</span></i>
-      </div>
-    </div>
-    <div class="bar">
-      <img src="../../../assets/bg.png" class="touxiang">
-      <div class="bar_r">
-        <p class="name">Toni</p>
-        <p class="date">1天前</p>
-      </div>
-      <div class="content">
-        <p>今天看到一个女孩子，好可爱 ，好喜欢嘻嘻嘻</p>
-      </div>
-      <div class="bar_b layui-row">
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe756;<span>12</span></i>
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe68c;<span>3</span></i>
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe611;<span>5</span></i>
-      </div>
-    </div>
-    <div class="bar">
-      <img src="../../../assets/bg.png" class="touxiang">
-      <div class="bar_r">
-        <p class="name">Toni</p>
-        <p class="date">1天前</p>
-      </div>
-      <div class="content">
-        <p>今天看到一个女孩子，好可爱 ，好喜欢嘻嘻嘻</p>
-      </div>
-      <div class="bar_b layui-row">
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe756;<span>12</span></i>
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe68c;<span>3</span></i>
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe611;<span>5</span></i>
-      </div>
-    </div>
-    <div class="bar">
-      <img src="../../../assets/bg.png" class="touxiang">
-      <div class="bar_r">
-        <p class="name">Toni</p>
-        <p class="date">1天前</p>
-      </div>
-      <div class="content">
-        <p>今天看到一个女孩子，好可爱 ，好喜欢嘻嘻嘻</p>
-      </div>
-      <div class="bar_b layui-row">
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe756;<span>12</span></i>
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe68c;<span>3</span></i>
-        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe611;<span>5</span></i>
+        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe756;<span>{{confession.hot}}</span></i>
+        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe68c;<span>{{confession.support}}</span></i>
+        <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe611;<span>{{confession.comment}}</span></i>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import ajax from 'axios'
+
 export default {
-  name: 'RealName'
+  name: 'RealName',
+  data() {
+    return {
+      confessions: []
+    }
+  },
+  created () {
+    let that = this
+    ajax.get('/getConfessions').then(function (res) {
+      that.confessions = res.data
+    })
+  }
 }
 </script>
 
@@ -95,7 +48,6 @@ export default {
 }
 
 .bar {
-  height: 10rem;
   padding: 0.5rem;
   left: 0;
   background-color: #ffffff;
@@ -125,8 +77,12 @@ export default {
 
 .content {
   margin: 0 2%;
-  padding: 0 2%;
+  padding: 0 10%;
   font-size: 14px;
+}
+
+.content span {
+  width: 80%;
 }
 
 .bar_b {
