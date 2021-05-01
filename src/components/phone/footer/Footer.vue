@@ -1,11 +1,11 @@
 <template>
   <div class="footer">
-    <router-link to="/wall"><div class="footclick" ref="a">
-      <i class="iconfont" style="font-size: 1.5rem;">&#xe619;</i><br/>
+    <router-link to="/wall"><div @click="clickFooter(1)" class="footclick" ref="wall">
+      <i class="iconfont" style="font-size: 1.5rem;" ref="wallIcon">&#xe619;</i><br/>
       表白墙
     </div></router-link>
-    <div class="footclick" ref="b">
-      <i class="iconfont" style="font-size: 1.5rem;">&#xe60f;</i><br/>
+    <div @click="clickFooter(2)" class="footclick" ref="lost">
+      <i class="iconfont" ref="lostIcon" style="font-size: 1.5rem;">&#xe60f;</i><br/>
       失物招领
     </div>
     <div class="footclick" ref="c">
@@ -31,13 +31,37 @@ export default {
     let path = this.$route.path
     path = path.split('/')[1]
     switch (path) {
-      case (''):
-      case ('wall'):
-        this.$refs.a.style.color = '#9dc8bd'
-        this.$refs.b.style.color = '#5b5959'
-        this.$refs.c.style.color = '#5b5959'
-        this.$refs.d.style.color = '#5b5959'
-        this.$refs.e.style.color = '#5b5959'
+      case '':
+      case 'wall':
+        this.$refs.wall.classList.add('selected')
+        this.$refs.wallIcon.classList.add('selected')
+        break
+      case 'lost':
+        this.$refs.lost.classList.add('selected')
+        this.$refs.lostIcon.classList.add('selected')
+        break
+    }
+  },
+  methods: {
+    changeClass(index) {
+      this.$refs.wall.classList.remove('selected')
+      this.$refs.wallIcon.classList.remove('selected')
+      this.$refs.lost.classList.remove('selected')
+      this.$refs.lostIcon.classList.remove('selected')
+      switch (index) {
+        case 1:
+          this.$refs.wall.classList.add('selected')
+          this.$refs.wallIcon.classList.add('selected')
+          break
+        case 2:
+          this.$refs.lost.classList.add('selected')
+          this.$refs.lostIcon.classList.add('selected')
+          break
+      }
+    },
+    clickFooter(index) {
+      console.log("ok")
+      this.changeClass(index)
     }
   }
 }
@@ -61,5 +85,8 @@ export default {
 }
 .iconfont{
   color: #5b5959;
+}
+.selected {
+  color: #9dc8bd;
 }
 </style>

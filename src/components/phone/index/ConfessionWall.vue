@@ -1,10 +1,10 @@
 <template>
   <div class="confessionWall">
     <div class="bar layui-border" v-for="confession in confessions">
-      <img src="../../../assets/bg.png" class="touxiang">
+      <img :src="'http://192.168.123.15:5000' + confession.header" class="touxiang">
       <div class="bar_r">
         <p class="name">{{confession.name}}</p>
-        <p class="date">{{confession.time}}前</p>
+        <p class="date">{{confession.time}}</p>
       </div>
       <div class="content">
         <span>{{confession.content}}</span>
