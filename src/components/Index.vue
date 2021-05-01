@@ -91,10 +91,4 @@ export default {
   #title .router-link-active{
     color: #f4abbc;
   }
-  #title1{
-    font-size: 14px;
-    text-align: center;
-    height: 2rem;
-    line-height: 2rem;
-  }
 </style>

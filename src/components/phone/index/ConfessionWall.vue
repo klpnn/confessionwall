@@ -75,12 +75,20 @@
         <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe611;<span>5</span></i>
       </div>
     </div>
+    <div class="layui-row page">
+      <i class="layui-icon layui-col-xs3" style="font-size: 12px;color: #666666;">&#xe65a;</i>
+      <p class="layui-icon layui-col-xs6" style="font-size: 12px;color: #666666;text-align: center">翻到 <input type="text"/> 页</p>
+      <i class="layui-icon layui-col-xs3" style="font-size: 12px;color: #666666;text-align: right">&#xe65b;</i><br>
+      <button>确定</button>
+    </div>
   </div>
 </template>
 
 <script>
+import Index from '../../Index'
 export default {
-  name: 'RealName'
+  name: 'ConfessionWall',
+  components: {Index}
 }
 </script>
 
@@ -95,10 +103,10 @@ export default {
 }
 
 .bar {
-  height: 10rem;
   padding: 0.5rem;
   left: 0;
   background-color: #ffffff;
+  margin-top: 1%;
 }
 
 .touxiang {
@@ -135,6 +143,22 @@ export default {
 }
 
 .bar_b span {
+  font-size: 12px;
+}
+.page{
+  margin: 3%;
+}
+.page input{
+  width: 3rem;
+  height: 1rem;
+}
+.page button{
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 0.3rem;
+  border: 0px;
+  background-color: #66baff;
+  margin: 3% calc(50% - 1.5rem);
   font-size: 12px;
 }
 </style>
