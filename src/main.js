@@ -6,7 +6,7 @@ import router from './router'
 import axios from 'axios'
 import store from './vuex/store'
 
-axios.defaults.baseURL = 'http://192.168.123.15:5000'
+axios.defaults.baseURL = 'http://localhost:5000'
 axios.defaults.withCredentials = true
 Vue.config.productionTip = false
 /* eslint-disable no-new */

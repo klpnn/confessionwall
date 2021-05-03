@@ -3,9 +3,9 @@
     <div v-if="!isPhone">
       <div id="pcindex">
         <div class="title">
-          <router-link to="/wall/realName" @click="clickTitleOne"><span class="title1" @click="clickTitleOne" ref="one">实名</span></router-link>
-          <router-link to="/wall/anonymous" @click="clickTitleTwo"><span @click="clickTitleTwo" ref="two">匿名</span></router-link>
-          <router-link to="/wall/confession" @click="clickTitleThree"><span @click="clickTitleThree" ref="three">表白</span></router-link>
+          <router-link to="/wall/realName"><span @click="clickBar(1)" :class="trueName" ref="trueName" id="trueName">实名</span></router-link>
+          <router-link to="/wall/anonymous"><span @click="clickBar(2)" :class="anonymous" ref="anonymous" id="anonymous">匿名</span></router-link>
+          <router-link to="/wall/confession"><span @click="clickBar(3)" :class="confession" ref="confession" id="confession">表白</span></router-link>
         </div>
         <router-view></router-view>
       </div>
@@ -31,25 +31,55 @@ export default {
     Bottom
   },
   methods: {
-    clickTitleOne () {
-      this.$refs.one.className = 'title1'
-      this.$refs.two.className = 'title2'
-      this.$refs.three.className = 'title2'
-    },
-    clickTitleTwo () {
-      this.$refs.two.className = 'title1'
-      this.$refs.one.className = 'title2'
-      this.$refs.three.className = 'title2'
-    },
-    clickTitleThree () {
-      this.$refs.three.className = 'title1'
-      this.$refs.two.className = 'title2'
-      this.$refs.one.className = 'title2'
+    clickBar(index) {
+      let trueName = this.$refs.trueName
+      let anonymous = this.$refs.anonymous
+      let confession = this.$refs.confession
+      trueName.className = ''
+      anonymous.className = ''
+      confession.className = ''
+      switch (index) {
+        case 1:
+          trueName.className = 'selected'
+          break
+        case 2:
+          anonymous.className = 'selected'
+              break
+        default:
+          confession.className = 'selected'
+      }
     }
   },
   computed: {
     isPhone: function () {
       return store.state.isPhone
+    },
+    trueName: function () {
+      let paths = this.$route.path.split("/")
+      let secondRoute = paths[paths.length - 1]
+      if(secondRoute === 'realName') {
+        return 'selected'
+      }else {
+        return 'normal'
+      }
+    },
+    anonymous: function () {
+      let paths = this.$route.path.split("/")
+      let secondRoute = paths[paths.length - 1]
+      if(secondRoute === 'anonymous') {
+        return 'selected'
+      }else {
+        return 'normal'
+      }
+    },
+    confession: function () {
+      let paths = this.$route.path.split("/")
+      let secondRoute = paths[paths.length - 1]
+      if(secondRoute === 'confession') {
+        return 'selected'
+      }else {
+        return 'normal'
+      }
     }
   }
 }
@@ -71,11 +101,8 @@ export default {
     font-weight: bold;
     color: black;
   }
-  .title1{
+  .selected{
     color: #f4abbc;
-  }
-  .title2{
-    color: black;
   }
   .title a{
     text-decoration: none;
@@ -90,5 +117,8 @@ export default {
   }
   #title .router-link-active{
     color: #f4abbc;
+  }
+  .normal {
+
   }
 </style>

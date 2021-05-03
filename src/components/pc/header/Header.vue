@@ -87,6 +87,7 @@ export default {
   mounted () {
     let path = this.$route.path
     path = path.split('/')[1]
+    console.log(this.$refs)
     switch (path) {
       case '':
       case 'wall':
