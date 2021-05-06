@@ -1,6 +1,5 @@
 <template>
   <div id="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <div id="line1"></div>
     <div id="sxy1">
       <a href="javascript:"> <span id="left1">上一页</span></a>
@@ -8,35 +7,35 @@
     </div>
     <div class="display">
     <div class="row">
-      <div class="col-md-3">
+      <div class="layui-col-xs4">
         <p>xxx我爱你</p>
     </div>
-      <div class="col-md-3">
+      <div class="layui-col-xs4">
         <p>xxx我爱你</p>
       </div>
-      <div class="col-md-3">
+      <div class="layui-col-xs4">
         <p>xxx我爱你</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-3">
+      <div class="layui-col-xs4">
         <p>XXX我爱你</p>
       </div>
-      <div class="col-md-3">
+      <div class="layui-col-xs4">
         <p>xxx我爱你</p>
       </div>
-      <div class="col-md-3">
+      <div class="layui-col-xs4">
         <p>xxx我爱你</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-3">
+      <div class="layui-col-xs4">
         <p>xxx我爱你</p>
       </div>
-      <div class="col-md-3">
+      <div class="layui-col-xs4">
         <p>xxx我爱你</p>
       </div>
-      <div class="col-md-3">
+      <div class="layui-col-xs4">
         <p>xxx我爱你</p>
       </div>
     </div>
@@ -47,7 +46,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'Anonymous'
@@ -90,14 +88,13 @@ export default {
     color: #66baff;
     font-size: 14px;
     font-weight: bold;
-    margin: 0 auto 1rem;
+    margin: 1rem auto 3rem;
   }
   #page1 input{
     width: 3rem;
     height: 1.2rem;
     border: 1px solid #66baff;
     position: absolute;
-    margin: 0.3rem 0;
   }
   #page1 input:hover{
     border: 1px solid #000000;
@@ -112,21 +109,26 @@ export default {
     color: #ffffff;
     position: absolute;
     margin-left: 3.5rem;
-    margin-top: 0.15rem;
   }
   #pagebtn1:hover {
     border: 1px solid #2c3e50;
   }
-  .col-md-3{
+  .layui-col-xs4{
     border: rgba(67, 59, 65, 0.4) 0.1rem solid;
-    margin: 1rem 3.4rem;
+    margin: 1em 1em;
     border-radius: 0.5rem;
     height: 8rem;
-    background-color: #46fff2;
+    background-color: #c2e9ff;
+    width: 30%;
   }
   .display{
-    margin: 3rem 2rem;
+    margin: 1.5rem 0 ;
+    height: auto;
     text-align: center;
-    border-radius: 0.3rem;
+    position: relative;
+  }
+  #anonymous{
+    height: 33rem;
+    width: auto;
   }
 </style>

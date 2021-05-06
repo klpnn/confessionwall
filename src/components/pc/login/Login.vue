@@ -1,7 +1,7 @@
 <template>
 <div id="login">
   <div id="main">
-    <img src="../../assets/lover.png" alt="">
+    <img src="../../../assets/lover.png" alt="">
     <div id="card">
       <h1>Log in</h1>
       <input type="text" placeholder="请输入账号" id="user" v-model="phone"/><br>
@@ -15,7 +15,7 @@
 
 <script>
 import ajax from 'axios'
-import store from '../../vuex/store'
+import store from '../../../vuex/store'
 import md5 from 'js-md5'
 export default {
   name: 'Login',
@@ -25,6 +25,7 @@ export default {
       let md5Password = md5('密码：' + this.password)
       ajax.post('/user/login?phone=' + that.phone + '&password=' + md5Password).then(function (res) {
         let resData = res.data
+        console.log(res)
         if (resData.sign === '$false') {
           that.message = '用户名或密码错误！'
         } else {
@@ -48,13 +49,13 @@ export default {
 <style scoped>
   @font-face {
     font-family: huazi;
-    src: url("../../assets/HYZhuZiMaXiTuanW.ttf");
+    src: url("../../../assets/HYZhuZiMaXiTuanW.ttf");
   }
   #main{
     width: 46rem;
     height: 23rem;
     margin: 1rem auto 50px;
-    background: url("../../assets/bg.png");
+    background: url("../../../assets/bg.png");
     background-size: 100% 100%;
     border-radius: 5px;
     box-shadow: 0px 0px 8px rgba(0,0,0,0.3);

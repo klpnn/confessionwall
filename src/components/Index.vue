@@ -1,38 +1,85 @@
 <template>
   <div id="index">
-    <div class="title">
-      <router-link to="/wall/realname"><span class="title1" @click="clickTitleOne" ref="one">实名</span></router-link>
-      <router-link to="/wall/anonymous"><span @click="clickTitleTwo" ref="two">匿名</span></router-link>
-      <router-link to="/wall/confession"><span @click="clickTitleThree" ref="three">表白</span></router-link>
+    <div v-if="!isPhone">
+      <div id="pcindex">
+        <div class="title">
+          <router-link to="/wall/realName"><span @click="clickBar(1)" :class="trueName" ref="trueName" id="trueName">实名</span></router-link>
+          <router-link to="/wall/anonymous"><span @click="clickBar(2)" :class="anonymous" ref="anonymous" id="anonymous">匿名</span></router-link>
+          <router-link to="/wall/confession"><span @click="clickBar(3)" :class="confession" ref="confession" id="confession">表白</span></router-link>
+        </div>
+        <router-view></router-view>
+      </div>
     </div>
-    <router-view></router-view>
+    <div v-if="isPhone">
+      <ConfessionWall></ConfessionWall>
+    </div>
   </div>
 </template>
 
 <script>
-import Header from './header/Header'
-import Bottom from './bottom/Bottom'
+import Header from './pc/header/Header'
+import Bottom from './pc/bottom/Bottom'
+import store from '../vuex/store'
+import RealName from './pc/index/RealName'
+import ConfessionWall from './phone/index/ConfessionWall'
 export default {
   name: 'index',
   components: {
+    ConfessionWall,
+    RealName,
     Header,
     Bottom
   },
   methods: {
-    clickTitleOne () {
-      this.$refs.one.className = 'title1'
-      this.$refs.two.className = 'title2'
-      this.$refs.three.className = 'title2'
+    clickBar(index) {
+      let trueName = this.$refs.trueName
+      let anonymous = this.$refs.anonymous
+      let confession = this.$refs.confession
+      trueName.className = ''
+      anonymous.className = ''
+      confession.className = ''
+      switch (index) {
+        case 1:
+          trueName.className = 'selected'
+          break
+        case 2:
+          anonymous.className = 'selected'
+              break
+        default:
+          confession.className = 'selected'
+      }
+    }
+  },
+  computed: {
+    isPhone: function () {
+      return store.state.isPhone
     },
-    clickTitleTwo () {
-      this.$refs.two.className = 'title1'
-      this.$refs.one.className = 'title2'
-      this.$refs.three.className = 'title2'
+    trueName: function () {
+      let paths = this.$route.path.split("/")
+      let secondRoute = paths[paths.length - 1]
+      if(secondRoute === 'realName') {
+        return 'selected'
+      }else {
+        return 'normal'
+      }
     },
-    clickTitleThree () {
-      this.$refs.three.className = 'title1'
-      this.$refs.two.className = 'title2'
-      this.$refs.one.className = 'title2'
+    anonymous: function () {
+      let paths = this.$route.path.split("/")
+      let secondRoute = paths[paths.length - 1]
+      if(secondRoute === 'anonymous') {
+        return 'selected'
+      }else {
+        return 'normal'
+      }
+    },
+    confession: function () {
+      let paths = this.$route.path.split("/")
+      let secondRoute = paths[paths.length - 1]
+      if(secondRoute === 'confession') {
+        return 'selected'
+      }else {
+        return 'normal'
+      }
     }
   }
 }
@@ -41,6 +88,10 @@ export default {
 <style scoped>
   #index{
     font-family: 微软雅黑;
+    height: auto;
+    width: auto;
+  }
+  #pcindex{
     width: 1000px;
     margin: auto;
   }
@@ -52,23 +103,24 @@ export default {
     font-weight: bold;
     color: black;
   }
-  .title1{
+  .selected{
     color: #f4abbc;
-  }
-  .title2{
-    color: black;
   }
   .title a{
     text-decoration: none;
     color: black;
   }
   .title span{
-    margin: 0 1.5rem;
+    width: 100%;
+    padding: 0 1.5rem;
   }
   .title span:hover{
     color: #cccccc;
   }
-  .router-link-active{
+  #title .router-link-active{
     color: #f4abbc;
+  }
+  .normal {
+
   }
 </style>

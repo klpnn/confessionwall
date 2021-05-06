@@ -1,0 +1,180 @@
+
+<html>
+<head>
+  <title>我真的真的真的爱你</title>
+  <meta name="keywords" content="表白驿站,表白网页在线制作,浪漫表白网页,表白程序,在线生成">
+  <meta name="description" content="">
+  <meta name="author" content="表白驿站">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all">
+  <!--导库-->
+  <script type="text/javascript" src="jquery.js" ></script>
+  <!-- 图片幻灯片效果-->
+  <script type="text/javascript" src="roundabout.js"></script>
+  <script type="text/javascript" src="roundabout.shapes.js"></script>
+  <script type="text/javascript" src="gallery_inti.js"></script>
+  <!-- 下雪--><script type="text/javascript" src="snowstorm.js"></script>
+  <!-- 打字机效果-->
+  <script type="text/javascript" src="text.js"></script>
+  <!-- 画爱心-->
+  <script type="text/javascript" src="ga.js" async=""></script>
+  <script type="text/javascript" src="heart.js"></script>
+  <!-- 移动div-->
+  <script type="text/javascript" src="move.js"></script>
+  <!-- 显示时间 -->
+  <!-- <script type="text/javascript" src="js/time.js"></script>	 -->
+  <!-- 设置文字跟随鼠标 -->
+  <!-- <script type="text/javascript" src="js/makesnake.js"></script> -->
+</head>
+<body>
+<script type="text/javascript">
+  var x,y;		//鼠标当前在页面上的位置
+  var step=10;	//字符显示间距，为了好看，step=0则字符显示没有间距
+  var message="i love you";		//跟随鼠标要显示的字符串
+  message=message.split("");	//将字符串分割为字符数组
+
+  var xpos=new Array()		//存储每个字符的x位置的数组
+  for (i=0;i<message.length;i++) {
+    xpos[i]=-50;
+  }
+  var ypos=new Array()		//存储每个字符的y位置的数组
+  for (i=0;i<message.length;i++) {
+    ypos[i]=-50;
+  }
+
+  for (i=0;i<message.length;i++) {  //动态生成显示每个字符span标记,
+    //使用span来标记字符，是为了方便使用CSS，并可以自由的绝对定位
+    document.write("<span id='span"+i+"' class='spanstyle'>");
+    document.write(message[i]);
+    document.write("</span>");
+  }
+
+  if (document.layers){
+    document.captureEvents(Event.MOUSEMOVE);
+  }
+
+  function handlerMM(e){ //从事件得到鼠标光标在页面上的位置
+    e=e||window.event;
+    x = (document.layers) ? e.pageX : document.body.scrollLeft+e.clientX-220;
+    y = (document.layers) ? e.pageY : document.body.scrollTop+e.clientY-35;
+  }
+
+  function makesnake() {  //重定位每个字符的位置
+    if (document.all) { //如果是IE
+      for (i=message.length-1; i>=1; i--) {
+        xpos[i]=xpos[i-1]+step;  //从尾向头确定字符的位置，每个字符为前一个字符“历史”水平坐标+step间隔，
+        //这样随着光标移动事件，就能得到一个动态的波浪状的显示效果
+        ypos[i]=ypos[i-1];  //垂直坐标为前一字符的历史“垂直”坐标，后一个字符跟踪前一个字符运动
+      }
+      xpos[0]=x+step //第一个字符的坐标位置紧跟鼠标光标
+      ypos[0]=y
+      //上面的算法将保证，如果鼠标光标移动到新位置，则连续调用makenake将会使这些字符一个接一个的移动的新位置
+      // 该算法显示字符串就有点象人类的游行队伍一样，
+
+      for (i=0; i<=message.length-1; i++) {
+        var thisspan = eval("span"+(i)+".style");  //妙用eval根据字符串得到该字符串表示的对象
+        thisspan.posLeft=xpos[i];
+        thisspan.posTop=ypos[i];
+      }
+    }
+    else{
+      for (i=message.length-1; i>=1; i--) {
+        xpos[i]=xpos[i-1]+step;
+        ypos[i]=ypos[i-1];
+      }
+      xpos[0]=x+step;
+      ypos[0]=y;
+      for (i=0; i<=message.length-1; i++) {
+        var thisspan = document.getElementById("span"+i).style;
+        thisspan.left=xpos[i];
+        thisspan.top=ypos[i];
+      }
+    }
+    var timer=setTimeout("makesnake()",10)  //设置10毫秒的定时器来连续调用makesnake(),时刻刷新显示字符串的位置。
+  }
+  document.onmousemove = handlerMM;
+  setTimeout(makesnake, 42000);
+</script>
+<!--#Header-->
+<div id="header" style="opacity:0.85">
+  <div id="title">
+  </div>
+</div>
+<!-- #myContent -->
+<div id="myContent">
+</div>
+<div id="contentToWrite" style="display:none">
+  <br>
+  亲爱的小红<br>
+  一时间不知道从哪说起,<br>
+  真爱来了，我们要好好把握。不管面临多大的压力，<br>
+  不管前面的路如何崎岖.不管经历过什么,<br>
+  我仍坚信最浪漫的事就是和你一起慢慢变老.<br>
+  还记得否,曾经的点点滴滴，从相识到现在，<br>
+  从冷漠到关心,从谢绝到依赖，从生疏到相爱,<br>
+  无数个平淡的日子同舟共济，相濡以沫.<br>
+  相信右下角的计时器,将永远继续下去,直至数据溢出.<br><br>
+  --------------------永远爱你的, 小明<br>
+</div>
+<script type="text/javascript">
+  writeContent(true);
+</script>
+<!-- #container -->
+<div id="container"  >
+  <ul id="myRoundabout">
+    <li><img src="slide1.jpg" alt=""></li>
+    <li><img src="slide2.jpg" alt=""></li>
+    <li><img src="slide5.jpg" alt=""></li>
+    <li><img src="slide3.jpg" alt=""></li>
+    <li><img src="slide4.jpg" alt=""></li>
+  </ul>
+</div>
+<script type="text/javascript">
+  setTimeout(move, 15000);
+</script>
+<!-- #bg -->
+<div id="bg">
+  <canvas id="garden">
+    <c style="color: #FFF; text-shadow:2px 3px 3px #222; font-family:Microsoft YaHei; font-size:50px" >
+      你的浏览器过时了,试试其他浏览器吧!</c></canvas>		</div>
+<!-- #time -->
+<div id="time" >
+  <span id="show"></span>
+  <script type="text/javascript">
+    function showTime() {
+      var currentDate = new Date();
+      var startDate = new Date(2015,05,20);
+      var date3 = currentDate-startDate;
+      var days=Math.floor(date3/(24*3600*1000));
+      var leave1=date3%(24*3600*1000);     //计算天数后剩余的毫秒数
+      var hours=Math.floor(leave1/(3600*1000));
+      var leave2=leave1%(3600*1000);        //计算小时数后剩余的毫秒数
+      var minutes=Math.floor(leave2/(60*1000));
+      var leave3=leave2%(60*1000);          //计算分钟数后剩余的毫秒数
+      var seconds=Math.round(leave3/1000);
+      if (minutes < 10)
+        minutes = "0" + minutes;
+      if (seconds < 10)
+        seconds = "0" + seconds;
+      var currentTimeString = "Dear 小红:<br>"
+        + "I have been in love with you for:<br> "
+        + "&nbsp&nbsp&nbsp&nbsp&nbsp"
+        + "<c style=\"color: #CCFF99; text-shadow:2px 3px 3px #222; font-family:Microsoft YaHei; font-size:24px\" >" + days +" </c>day "
+        + "<c style=\"color: #CCFF99; text-shadow:2px 3px 3px #222; font-family:Microsoft YaHei; font-size:24px\" >" + hours+" </c>hour "
+        +"<c style=\"color: #CCFF99; text-shadow:2px 3px 3px #222; font-family:Microsoft YaHei; font-size:24px\" >" + minutes+" </c>min "
+        +"<c style=\"color: #CCFF99; text-shadow:2px 3px 3px #222; font-family:Microsoft YaHei; font-size:24px\" >" +seconds+" </c>sec<br>"
+        + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp只愿执子之手,与子偕老..<br>"
+        + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
+        +	"<c style=\"color: #CCCCCC; text-shadow:2px 3px 3px #222; font-family:Microsoft YaHei; font-size:20px\" >---- 爱你的小明</c>";
+      document.getElementById("show").innerHTML=currentTimeString;  //改这地方
+      window.setTimeout("showTime()", 1000);
+    }
+
+    setTimeout("showTime()", 40000);
+  </script>
+</div>
+<!-- #footer-->
+<div id="footer">
+</div>
+</body>
+</html>

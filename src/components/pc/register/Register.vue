@@ -1,12 +1,13 @@
 <template>
 <div id="register">
   <div id="main1">
-    <img src="../../assets/lover.png" alt="">
+    <img src="../../../assets/lover.png" alt="">
     <div id="card1">
       <h1>Register</h1>
       <input type="text" v-model="phone" placeholder="请输入手机号" id="user1"/><br>
       <input type="password" v-model="password" placeholder="请输入密码" id="mima1"/><br>
       <input type="password" v-model="confirmpswd" placeholder="确认密码" id="qrmima"/><br>
+      <input type="text" v-model="nickName" placeholder="设置昵称" id="nickName"/><br>
       <p id="regimsg">{{message}}</p>
       <button @click="register" id="zcbtn">注册</button>
     </div>
@@ -16,7 +17,7 @@
 
 <script>
 import ajax from 'axios'
-
+import md5 from 'js-md5'
 export default {
   name: 'Register',
   data () {
@@ -25,28 +26,48 @@ export default {
       phone: '',
       password: '',
       confirmpswd: '',
-      phoneReg: /^1[3-9][0-9]{9}/
+      nickName: '',
+      phoneReg: /^1[3-9][0-9]{9}/,
+      nameReg: /^[\u4e00-\u9fa5_a-zA-Z0-9.]+$/
     }
   },
   methods: {
     register () {
       // eslint-disable-next-line no-unused-vars
+      let namelen = 0
+      for (let i = 0; i < this.nickName.length; i++) {
+        if (this.nickName.charCodeAt(i) > 255) {
+          namelen += 2
+        } else {
+          namelen++
+        }
+      }
+      // eslint-disable-next-line no-unused-vars
       let that = this
+      let md5password = md5('密码：' + this.password)
       if (!this.phoneReg.test(this.phone)) {
         this.message = '请输入合法手机号哦~'
       } else {
         if (this.password !== this.confirmpswd) {
           this.message = '哎呀，两次密码不一致'
         } else {
-          ajax.post('/user/register?phone=' + that.phone + 'password=' + that.password).then(function (res) {
-            if (res.data === '$success') {
-              that.message = '注册成功啦！'
-            } else {
-              that.message = '注册失败了~'
-            }
-          }).catch(function () {
-            that.message = '服务器发生未知错误'
-          })
+          if (namelen > 15) {
+            this.message = '名字太长啦！'
+          } else if (namelen < 1) {
+            this.message = '名字太短啦！'
+          } else if (!this.nameReg.test(this.nickName)) {
+            this.message = '名字不要出现特殊字符哦~！'
+          } else {
+            ajax.post('/user/regist?phone=' + that.phone + '&password=' + md5password + '&nickName=' + that.nickName).then(function (res) {
+              if (res.data.sign === '$success') {
+                that.message = '注册成功啦！'
+              } else {
+                that.message = '注册失败了~'
+              }
+            }).catch(function () {
+              that.message = '服务器发生未知错误'
+            })
+          }
         }
       }
     }
@@ -57,13 +78,13 @@ export default {
 <style scoped>
   @font-face {
     font-family: huazi;
-    src: url("../../assets/HYZhuZiMaXiTuanW.ttf");
+    src: url("../../../assets/HYZhuZiMaXiTuanW.ttf");
   }
   #main1{
     width: 46rem;
     height: 23rem;
     margin: 1rem auto 50px;
-    background: url("../../assets/bg.png");
+    background: url("../../../assets/bg.png");
     background-size: 100% 100%;
     border-radius: 5px;
     box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
@@ -91,7 +112,7 @@ export default {
     text-align: center;
     color: #666666;
     position: relative;
-    top: -20rem;
+    top: -21.5rem;
     font-weight: normal;
   }
   #user1{
@@ -99,7 +120,7 @@ export default {
     height: 1.5rem;
     margin: 0 auto;
     position: relative;
-    top: -14rem;
+    top: -16rem;
     left: 4.5rem;
   }
   #mima1{
@@ -107,7 +128,7 @@ export default {
     height: 1.5rem;
     margin: 0 auto;
     position: relative;
-    top: -13rem;
+    top: -15rem;
     left: 4.5rem;
   }
   #qrmima{
@@ -115,7 +136,15 @@ export default {
     height: 1.5rem;
     margin: 0 auto;
     position: relative;
-    top: -12rem;
+    top: -14rem;
+    left: 4.5rem;
+  }
+  #nickName{
+    width: 13rem;
+    height: 1.5rem;
+    margin: 0 auto;
+    position: relative;
+    top: -13rem;
     left: 4.5rem;
   }
   #zcbtn{
@@ -123,7 +152,7 @@ export default {
     height: 2rem;
     margin: 0 auto;
     position: relative;
-    top: -10rem;
+    top: -11rem;
     left: 8rem;
     background-color: #66baff;
     border: 2px solid #858585;
@@ -138,7 +167,7 @@ export default {
     color: darkred;
     font-size: 12px;
     position: absolute;
-    top: 15rem;
+    top: 16rem;
     left: 4.5rem;
     text-align: center;
   }
