@@ -58,6 +58,8 @@ export default {
 <style scoped>
   #index{
     font-family: 微软雅黑;
+    height: auto;
+    width: auto;
   }
   #pcindex{
     width: 1000px;
