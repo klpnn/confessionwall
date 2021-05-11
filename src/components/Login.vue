@@ -3,7 +3,7 @@
     <div v-if="!isPhone">
       <pcLogin></pcLogin>
     </div>
-    <div v-if="isPhone">
+    <div v-if="isPhone" class="phlogin">
       <mLogin></mLogin>
     </div>
   </div>
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style scoped>
-  .alllogin{
+  .phlogin{
     background-color: #f9f9f9;
     width: 100%;
     height: calc(100% - 8rem);
