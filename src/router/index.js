@@ -12,6 +12,12 @@ import Perinfo from '../components/pc/perinfo/Perinfo'
 import mPerinfo from '../components/phone/perinfo/Perinfo'
 import Mine from '../components/phone/mine/Mine'
 
+import displayModel1 from '../components/pc/displayModel/displayModel1'
+import displayModel2 from '../components/pc/displayModel/displayModel2'
+import displayModel3 from '../components/pc/displayModel/displayModel3'
+import displayModel4 from '../components/pc/displayModel/displayModel4'
+import displayModel5 from '../components/pc/displayModel/displayModel5'
+import displayModel6 from '../components/pc/displayModel/displayModel6'
 Vue.use(Router)
 
 export default new Router({
@@ -84,6 +90,42 @@ export default new Router({
       path: '/mine',
       name: 'mine',
       component: Mine
+    },
+
+    {
+      path:'/displayModel',
+      name:'displayModel',
+      component:Index,
+      children:[
+        {
+          path:'displayModel1',
+          name:'displayModel1',
+          component:displayModel1,
+        },
+        {
+          path:'displayModel2',
+          name:'displayModel2',
+          component:displayModel2,
+        },
+        {
+          path:'displayModel3',
+          name:'displayModel3',
+          component:displayModel3,
+        },{
+          path:'displayModel4',
+          name:'displayModel4',
+          component:displayModel4,
+        },{
+          path:'displayModel5',
+          name:'displayModel5',
+          component:displayModel5,
+        },
+        {
+          path:'displayModel6',
+          name:'displayModel6',
+          component:displayModel6,
+        },
+      ]
     }
   ],
   mode: 'history'

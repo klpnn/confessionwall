@@ -115,6 +115,7 @@ export default {
 .words {
   width: 25%;
   height: 30%;
+  border-radius: 5rem;
   float: left;
   margin: 2% 4%;
 }
@@ -123,6 +124,7 @@ export default {
   width: 100%;
   height: 64%;
   background-color: #66baff;
+  border-radius: 0.5rem;
   display: inline-block;
   padding: 2% 5%;
   font-size: 14px;
@@ -134,6 +136,7 @@ export default {
   background-color: white;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   text-indent: 1rem;
+  border-radius: 0.5rem;
   font-size: 12px;
   padding: 0.5% 10% 0.5% 0;
 }

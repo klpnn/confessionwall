@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>我爱你~~~~~~~~~~</title>
+    <meta name="keywords" content="表白驿站,表白网页在线制作,爱情树表白网页" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link href="default.css" rel="stylesheet" type="text/css">
+    <script src="jquery.min.js" type="text/javascript"></script>
+
+    <script src="iscex.min.js" type="text/javascript"></script>
+
+    <script src="iscex-parser.js" type="text/javascript"></script>
+
+    <script src="iscex-jit.js" type="text/javascript"></script>
+
+    <script src="iscex-builderbase.min.js" type="text/javascript"></script>
+
+    <script src="iscex-asvnc.min.js" type="text/javascript"></script>
+
+    <script src="iscex-asvnc-powerpack.min.js" type="text/javascript"></script>
+
+    <script src="function.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="love.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false">
+
+<div id="main">
+<div id="wrap">
+<div id="text">
+<div id="code"><font color="#ff0000">
+<span class="say">对于我们的相遇，已经不记得当初的点滴，只知道因为真诚和默契，因为灵犀相通，我们成了无话不谈的知己。&nbsp;</span><br><span class=say></span><br><span class=say>相识是缘分，正是缘分使我们相识在这个时空，让我们能用心去彼此感受这份一生难求的缘，也许我们只是茫茫黑夜中擦弦而过的船，能在瞬间照亮彼此的心灵，给对方以温暖，已经足够了，还何必奢求更多？</span><br><span class=say></span><br><span&nbsp; class=say>何况我们已经失去了拥有彼此的资格，但此刻我却想善待自己，我不愿意为了顺从理智而使自己的感情变得虚伪，不想让以后的人生植满遗憾和悔恨，不想在白发苍苍时回首往事而泪流满面。</span><br><span class=say></span><br><span class=say>当无眠晚风轻拂的时候，你是否心尖会有一丝颤动，我总是忍不住想你，辗转反侧想的都是你。<!-- </span><br>
+<span class="say"></span><br>
+<span class="say">* {two}</span><br>
+<span class="say"></span><br>
+<span class="say">* {three}</span><br>
+<span class="say"></span><br>
+<span class="say">* {four}</span><br>
+<span class="say"></span><br>
+<span class="say">* {five} </span><br>
+<span class="say"></span><br>
+<span class="say">* {six}</span><br>
+<span class="say"></span><br>
+<span class="say">* {seven}</span><br>
+<span class="say"></span><br>
+<span class="say">* {eight} --></span><br>
+<span class="say"></span><br>
+<span class="say"><span class="space"></span> -- 在这漫漫长夜里，想你，想你……</span>            </font>
+<p></p></div></div>
+<div id="clock-box">这是我们相遇的~
+
+<div id="clock"></div></div><canvas width="1100" height="680" id="canvas">
+
+</canvas>
+</div></div>
+<script>
+    (function(){
+        var canvas = $('#canvas')
+
+        if (!canvas[0].getContext) {
+            $('#error').show()
+            return false
+        }
+
+        var width = canvas.width()
+        var height = canvas.height()
+
+        canvas.attr('width', width)
+        canvas.attr('height', height)
+
+        var opts = {
+            seed: {
+                x: width / 2 - 20,
+                color: 'rgb(190, 26, 37)',
+                scale: 2
+            },
+            branch: [
+                [535, 680, 570, 250, 500, 200, 30, 100, [
+                    [540, 500, 455, 417, 340, 400, 13, 100, [
+                        [450, 435, 434, 430, 394, 395, 2, 40]
+                    ]],
+                    [550, 445, 600, 356, 680, 345, 12, 100, [
+                        [578, 400, 648, 409, 661, 426, 3, 80]
+                    ]],
+                    [539, 281, 537, 248, 534, 217, 3, 40],
+                    [546, 397, 413, 247, 328, 244, 9, 80, [
+                        [427, 286, 383, 253, 371, 205, 2, 40],
+                        [498, 345, 435, 315, 395, 330, 4, 60]
+                    ]],
+                    [546, 357, 608, 252, 678, 221, 6, 100, [
+                        [590, 293, 646, 277, 648, 271, 2, 80]
+                    ]]
+                ]]
+            ],
+            bloom: {
+                num: 700,
+                width: 1080,
+                height: 650,
+            },
+            footer: {
+                width: 1200,
+                height: 5,
+                speed: 10,
+            }
+        }
+
+        var tree = new Tree(canvas[0], width, height, opts)
+        var seed = tree.seed
+        var foot = tree.footer
+        var hold = 1
+
+        canvas.click(function(e) {
+            var offset = canvas.offset(), x, y
+            x = e.pageX - offset.left
+            y = e.pageY - offset.top
+            if (seed.hover(x, y)) {
+                hold = 0
+                canvas.unbind('click')
+                canvas.unbind('mousemove')
+                canvas.removeClass('hand')
+            }
+        }).mousemove(function(e){
+            var offset = canvas.offset(), x, y
+            x = e.pageX - offset.left
+            y = e.pageY - offset.top
+            canvas.toggleClass('hand', seed.hover(x, y))
+        })
+
+        var seedAnimate = eval(Jscex.compile('async', function () {
+            seed.draw()
+            while (hold) {
+                $await(Jscex.Async.sleep(10))
+            }
+            while (seed.canScale()) {
+                seed.scale(0.95)
+                $await(Jscex.Async.sleep(10))
+            }
+            while (seed.canMove()) {
+                seed.move(0, 2)
+                foot.draw()
+                $await(Jscex.Async.sleep(10))
+            }
+        }))
+
+        var growAnimate = eval(Jscex.compile('async', function () {
+            do {
+    	        tree.grow()
+                $await(Jscex.Async.sleep(10))
+            } while (tree.canGrow())
+        }))
+
+        var flowAnimate = eval(Jscex.compile('async', function () {
+            do {
+    	        tree.flower(2)
+                $await(Jscex.Async.sleep(10))
+            } while (tree.canFlower())
+        }))
+
+        var moveAnimate = eval(Jscex.compile('async', function () {
+            tree.snapshot('p1', 240, 0, 610, 680)
+            while (tree.move('p1', 500, 0)) {
+                foot.draw()
+                $await(Jscex.Async.sleep(10))
+            }
+            foot.draw()
+            tree.snapshot('p2', 500, 0, 610, 680)
+
+            // 会有闪烁不得意这样做, (＞﹏＜)
+            canvas.parent().css('background', 'url(' + tree.toDataURL('image/png') + ')')
+            canvas.css('background', '#ffe')
+            $await(Jscex.Async.sleep(300))
+            canvas.css('background', 'none')
+        }))
+
+        var jumpAnimate = eval(Jscex.compile('async', function () {
+            var ctx = tree.ctx
+            while (true) {
+                tree.ctx.clearRect(0, 0, width, height)
+                tree.jump()
+                foot.draw()
+                $await(Jscex.Async.sleep(25))
+            }
+        }))
+
+        var textAnimate = eval(Jscex.compile('async', function () {
+		    var together = new Date()
+		    together.setFullYear(2015,4,20) 			//时间年月日
+		    together.setHours(7)						//小时
+		    together.setMinutes(3)					//分钟
+		    together.setSeconds(0)					//秒前一位
+		    together.setMilliseconds(55)				//秒第二位
+		    $('#code').show().typewriter()
+            $('#clock-box').fadeIn(500)
+            while (true) {
+                timeElapse(together)
+                $await(Jscex.Async.sleep(1000))
+            }
+        }))
+
+        var runAsync = eval(Jscex.compile('async', function () {
+            $await(seedAnimate())
+            $await(growAnimate())
+            $await(flowAnimate())
+            $await(moveAnimate())
+            textAnimate().start()
+            $await(jumpAnimate())
+        }))
+
+        runAsync().start()
+    })()
+    </script>
+
+	<div class="bg1">
+		<div class="main">
+			<footer style="line-height:20px">
+                <div id="copyright">
+                    <div align="center">
+                      <a href='' target="_blank"></a>
+                      <a href="" target="_blank"></a>
+                      <a href="" target="_blank"></a>
+                    </div>
+                </div>
+        </footer>
+		</div>
+	</div>
+<div align="center">
+</div>
+</body>
+</html>
+<script>
+  //import Footer from '../../../src/components/phone/footer/Footer'
+  export default {
+    components: {Footer}
+  }
+</script>
