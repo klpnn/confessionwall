@@ -1,23 +1,23 @@
 <template>
   <div class="footer">
     <router-link to="/wall"><div @click="clickFooter(1)" class="footclick" ref="wall">
-      <i class="iconfont" style="font-size: 1.5rem;" ref="wallIcon">&#xe619;</i><br/>
+      <i class="iconfont" style="font-size: 2rem;" ref="wallIcon">&#xe619;</i><br/>
       表白墙
     </div></router-link>
     <div @click="clickFooter(2)" class="footclick" ref="lost">
-      <i class="iconfont" ref="lostIcon" style="font-size: 1.5rem;">&#xe60f;</i><br/>
+      <i class="iconfont" ref="lostIcon" style="font-size: 2rem;">&#xe60f;</i><br/>
       失物招领
     </div>
     <div class="footclick" ref="c">
-      <i class="iconfont" style="font-size: 1.5rem;">&#xe621;</i><br/>
+      <i class="iconfont" style="font-size: 2rem;">&#xe621;</i><br/>
       许愿墙
     </div>
     <div class="footclick" ref="d">
-      <i class="iconfont" style="font-size: 1.5rem;">&#xe600;</i><br/>
+      <i class="iconfont" style="font-size: 2rem;">&#xe600;</i><br/>
       表白
     </div>
     <div class="footclick" ref="e">
-      <i class="iconfont" style="font-size: 1.5rem;">&#xe65c;</i><br/>
+      <i class="iconfont" style="font-size: 2rem;">&#xe65c;</i><br/>
       我的
     </div>
 
@@ -70,9 +70,9 @@ export default {
 <style scoped>
 .footer {
   position: absolute;
-  top: calc(100% - 3.5rem);
+  top: calc(100% - 4rem);
   width: 100%;
-  height: 3.5rem;
+  height: 4rem;
   background-color: #ffffff;
   border-top: 1px solid #cccccc;
   box-shadow: 0 0 5px #cccccc;

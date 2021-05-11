@@ -3,11 +3,11 @@
     <div class="bar layui-border" v-for="confession in confessions">
       <img :src="'http://192.168.123.15:5000' + confession.header" class="touxiang">
       <div class="bar_r">
-        <p class="name">{{confession.name}}</p>
-        <p class="date">{{confession.time}}</p>
+        <p class="name">{{confession.name}} &emsp;<i style="font-size: 18px;color: #f4abbc;">&#xe661;</i></p>
+        <p class="date">{{confession.time}}123</p>
       </div>
       <div class="content">
-        <span>{{confession.content}}</span>
+        <span>{{confession.content}}fagahshagfagra</span>
       </div>
       <div class="bar_b layui-row">
         <i class="layui-icon layui-col-xs4" style="font-size: 18px;color: #f98329;">&#xe756;<span>{{confession.hot}}</span></i>
@@ -40,11 +40,11 @@ export default {
 <style scoped>
 .confessionWall {
   position: absolute;
-  top: 3.5rem;
+  top: 4rem;
   background-color: #f9f9f9;
   overflow-y: scroll;
   width: 100%;
-  height: calc(100% - 7rem);
+  height: calc(100% - 8rem);
 }
 
 .bar {

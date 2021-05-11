@@ -3,13 +3,14 @@ import Router from 'vue-router'
 import Index from '../components/Index'
 import Lostandfound from '../components/pc/lostandfound/Lostandfound'
 import mLostandfound from '../components/phone/lostandfound/Lostandfound'
-import Login from '../components/pc/login/Login'
+import Login from '../components/Login'
 import Register from '../components/pc/register/Register'
 import RealName from '../components/pc/index/RealName'
 import Anonymous from '../components/pc/index/Anonymous'
 import Confession from '../components/pc/index/Confession'
 import Perinfo from '../components/pc/perinfo/Perinfo'
 import mPerinfo from '../components/phone/perinfo/Perinfo'
+import Mine from '../components/phone/mine/Mine'
 
 Vue.use(Router)
 
@@ -78,6 +79,11 @@ export default new Router({
       path: '/mperinfo',
       name: 'mperinfo',
       component: mPerinfo
+    },
+    {
+      path: '/mine',
+      name: 'mine',
+      component: Mine
     }
   ],
   mode: 'history'

@@ -44,7 +44,7 @@ export default {
           break
         case 2:
           anonymous.className = 'selected'
-              break
+          break
         default:
           confession.className = 'selected'
       }
@@ -57,7 +57,7 @@ export default {
     trueName: function () {
       let paths = this.$route.path.split("/")
       let secondRoute = paths[paths.length - 1]
-      if(secondRoute === 'realName') {
+      if(secondRoute === 'realName' || secondRoute === '') {
         return 'selected'
       }else {
         return 'normal'

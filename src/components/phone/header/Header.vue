@@ -1,6 +1,6 @@
 <template>
   <div class="layui-header layui-row">
-    <span id="title" class="layui-col-xs4 layui-col-sm7 layui-col-md8">海院表白墙</span>
+    <span id="title" class="layui-col-xs4 layui-col-sm4 layui-col-xs-offset1 layui-col-sm-offset1">海院表白墙</span>
   </div>
 </template>
 
@@ -11,14 +11,18 @@ export default {
 </script>
 
 <style scoped>
+  @font-face {
+    font-family: kuaileti;
+    src: url("../../../assets/zkklt.ttf");
+  }
  .layui-header{
    background-color: #c2ebe0 ;
-   font-size: 14px;
+   font-size: 20px;
    width: 100%;
-   height: 3.5rem;
+   height: 4rem;
    position: fixed;
- }
- #title{
-   margin: 20px;
+   font-family: kuaileti;
+   line-height: 4rem;
+   color: #5b5959;
  }
 </style>
