@@ -16,10 +16,10 @@
       <i class="iconfont" style="font-size: 2rem;">&#xe600;</i><br/>
       表白
     </div>
-    <div class="footclick" ref="e">
-      <i class="iconfont" style="font-size: 2rem;">&#xe65c;</i><br/>
+    <router-link to="/mine"><div @click="clickFooter(5)" class="footclick" ref="mine">
+      <i class="iconfont" style="font-size: 2rem;" ref="mineIcon">&#xe65c;</i><br/>
       我的
-    </div>
+    </div></router-link>
 
   </div>
 </template>
@@ -40,6 +40,10 @@ export default {
         this.$refs.lost.classList.add('selected')
         this.$refs.lostIcon.classList.add('selected')
         break
+      case 'mine':
+        this.$refs.mine.classList.add('selected')
+        this.$refs.mineIcon.classList.add('selected')
+        break
     }
   },
   methods: {
@@ -57,10 +61,13 @@ export default {
           this.$refs.lost.classList.add('selected')
           this.$refs.lostIcon.classList.add('selected')
           break
+        case 5:
+          this.$refs.mine.classList.add('selected')
+          this.$refs.mineIcon.classList.add('selected')
+          break
       }
     },
     clickFooter(index) {
-      console.log("ok")
       this.changeClass(index)
     }
   }
